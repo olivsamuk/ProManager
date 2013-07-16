@@ -1,0 +1,139 @@
+html, body {
+    height:100%;
+}
+
+body {
+    background:url("../images/furley_bg.png");
+}
+
+h4 {
+		color:#404040;
+}
+
+.title {
+		font-size:36px;
+		color:#d2d2d2;
+		text-shadow: #333 1px 1px 1px, #FFF -1px -1px 1px;
+}
+
+.title:hover {
+		text-decoration:none;
+		color:#d1d1d1;
+}
+
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+}
+
+.post {
+background:#fefabc; 
+padding:15px; 
+color: #000; 
+box-shadow: 0px 4px 6px #333;
+-moz-box-shadow: 0px 4px 6px #333;
+-webkit-box-shadow: 0px 4px 6px #333;
+cursor: move;
+height:70px;
+line-height:18px;
+}
+
+.prepost {
+		height:100px;
+}
+
+.novademanda {
+		border: 2px dashed #ccc;
+		height:100px;
+		-moz-border-radius:6px;
+		-webkit-border-radius:6px;
+		border-radius:6px;
+		line-height:100px;
+		text-align:center;
+}
+
+.white {
+    background: #fff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    padding:0 20px;
+}
+
+.pagination span {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #DDDDDD;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    float: left;
+    line-height: 34px;
+    padding: 0 14px;
+    text-decoration: none;
+}
+
+.pagination em {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #DDDDDD;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    float: left;
+    line-height: 34px;
+    padding: 0 14px;
+    text-decoration: none;
+}
+
+.form-horizontal {
+	margin:20px 0 0 0;
+}
+
+.nav-tabs > .active > a, .nav-tabs > .active > a {
+	outline:0;
+}
+
+footer {
+    padding:15px 0;
+}
+
+.bs-icon {
+    float: left;
+    margin: 15px 10px 0 0;
+    opacity: 0.8;
+}
+
+.carousel-caption a {
+  color:#fff;
+}
+
+.carousel-caption a:hover {
+  color:#efefef;
+  text-decoration:none;
+}
+
+h3 {
+    margin-bottom: 10px;
+}
+
+.container p {
+    text-align: justify;
+}
+
+.row-fluid {
+	margin-bottom:15px;
+}
+
+.rodape {
+    padding:20px 0; margin:20px 0 0 0; border:1px solid #ddd; background:#fff; 
+}

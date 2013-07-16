@@ -1,0 +1,104 @@
+	function sleep(milliseconds) {
+		var start = new Date().getTime();
+		for (var i = 0; i < 1e7; i++) {
+		  if ((new Date().getTime() - start) > milliseconds){
+		    break;
+		  }
+		}
+	}
+
+	function allowDrop(ev)
+	{
+	ev.preventDefault();
+	}
+
+	function drag(ev)
+	{
+	ev.dataTransfer.setData("Text",ev.target.id);
+	}
+
+	function drop(ev)
+	{
+	ev.preventDefault();
+	var data=ev.dataTransfer.getData("Text");
+	ev.target.appendChild(document.getElementById(data));
+	var status=ev.target.id
+	showStatus2(status+data);
+	showStatus1();
+	showStatus3();
+
+	//alert(status);
+	}  
+
+	function showStatus2(str)
+	{
+	if (str=="")
+		{
+		document.getElementById("status2").innerHTML="";
+		return;
+		}
+	if (window.XMLHttpRequest)
+		{// code for IE7+, Firefox, Chrome, Opera, Safari
+		xmlhttp=new XMLHttpRequest();
+		}
+	else
+		{// code for IE6, IE5
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	xmlhttp.onreadystatechange=function()
+		{
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		  {
+		  document.getElementById("status2").innerHTML=xmlhttp.responseText;
+		  }
+		}
+	xmlhttp.open("GET","ajax_status2.php?q="+str,true);
+	xmlhttp.send();
+}
+
+function showStatus1()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("status1").innerHTML=xmlhttp.responseText;
+    }
+  }
+sleep(1000);
+xmlhttp.open("GET","ajax_status1.php",true);
+xmlhttp.send();
+}
+
+function showStatus3()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("status3").innerHTML=xmlhttp.responseText;
+    }
+  }
+sleep(1000);
+xmlhttp.open("GET","ajax_status3.php",true);
+xmlhttp.send();
+}
+
