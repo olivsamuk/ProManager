@@ -86,24 +86,16 @@ xmlhttp.send();
 		<?}?>		
 		</select>
 		</form>
-		<br>
 		<div id="txtHint">
 			<?
 			$result = mysql_query("SELECT * FROM colaboradores ");
 
-			echo "<table class='table table-bordered'>
-			<tr>
-			<th>Nome</th>
-			<th>Setor</th>
-			<th>Data de Registro</th>
-			</tr>";
+			echo "<table class='table table-bordered'>";
 
 			while($row = mysql_fetch_array($result))
 				{
 				echo "<tr>";
 				echo "<td>" . $row['nome'] . "</td>";
-				echo "<td>" . $row['setor_id'] . "</td>";
-				echo "<td>" . $row['criado_em'] . "</td>";
 				echo "</tr>";
 				}
 			echo "</table>";?>
