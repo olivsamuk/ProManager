@@ -6,7 +6,36 @@
 
 	$id = (int) $_GET['id']; 
 	$instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHERE `id` = '$id'")); 
+	
 ?>
+
+<script>
+function showUser(str)
+{
+if (str=="")
+  {
+  document.getElementById("txtHint").innerHTML="";
+  return;
+  }
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","getuser.php?q="+str,true);
+xmlhttp.send();
+}
+</script>
 
 <div class="row">
 	<div class="span4">
@@ -27,60 +56,60 @@
 			<?
 			$counter=0;
 			$find_setores = mysql_query("SELECT * FROM `setores`") or trigger_error(mysql_error()); 
-			while($setor = mysql_fetch_array($find_setores)){ 
+			while($setor = mysql_fetch_array($find_setores)){
 			?>
 				<tr>
 					<td><a href=""><? echo $setor['nome']; ?></a></td>
-					<td>
-						<a href="#myModalEdit<? echo $counter; ?>" role="button" class="btn" data-toggle="modal">Editar</a> |
-						<a href="setores/delete.php?id=<? echo $setor['id']; ?>">Remover</a>
-						<!-- Modal Setores/Edit -->
-						<div id="myModalEdit<? echo $counter; ?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						<h3 id="myModalLabel">Modal header</h3>
-						</div>
-						<div class="modal-body">
-						<?
-						$tela = $setor['id'];
-						//include('setores/edit.php'); //PROBLEMAAAAAA
-						?>
-						</div>
-						<div class="modal-footer">
-						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-						<button class="btn btn-primary">Save changes</button>
-						</div>
-						</div>
-				
+					<td> 
+						<a href="setores/edit.php?id=<? echo $setor['id']; ?>&id_=<? echo $id; ?>" class="btn">Editar</a>
+						<a href="setores/delete.php?id=<? echo $setor['id']; ?>" class="btn">Remover</a>
 					</td>
 				</tr>
 			<?$counter++;}?>
 		</table>
     <!-- Button to trigger modal -->
-    <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Novo Setor</a>
+    <a href="setores/new.php?id=<? echo $id; ?>" class="btn btn-primary">Novo Setor</a>
      
 	</div>
 
 	<div class="span4">
 		<h3>Colaboradores</h3>
 		Filtro:
-		<select>
-			<option>Todos</option>
-			<option>Getec</option>
-			<option>Geprod</option>
-			<option>Gesist</option>
-			<option>Gafin</option>		
+
+		<form>
+		<select name="users" onchange="showUser(this.value)">
+		<option value="">Todos</option>
+		<? 
+		$find_setores = mysql_query("SELECT * FROM `setores`") or trigger_error(mysql_error()); 			
+		while($setores = mysql_fetch_array($find_setores)){ ?>
+		<option value="<? echo $setores['id']; ?>"><? echo $setores['nome']; ?></option>
+		<?}?>		
 		</select>
-		<br />
-		<ul class="nav nav-tabs nav-stacked">
-			<li><a href="">Samuel Silva de Oliveira</a></li>
-			<li><a href="">Bruno Garcia</a></li>
-			<li><a href="">Pedro Moutinho</a></li>
-			<li><a href="">Márcio Brasil</a></li>
-			<li><a href="">Célio COnrado</a></li>
-			<li><a href="">Ronaldo Miranda</a></li>
-		</ul>
-		<a href="" class="btn btn-primary">Novo Colaborador</a>
+		</form>
+		<br>
+		<div id="txtHint">
+			<?
+			$result = mysql_query("SELECT * FROM colaboradores WHERE setor_id = $q ");
+
+			echo "<table class='table table-bordered'>
+			<tr>
+			<th>Nome $q</th>
+			<th>Setor</th>
+			<th>Data de Registro</th>
+			</tr>";
+
+			while($row = mysql_fetch_array($result))
+				{
+				echo "<tr>";
+				echo "<td>" . $row['nome'] . "</td>";
+				echo "<td>" . $row['setor_id'] . "</td>";
+				echo "<td>" . $row['criado_em'] . "</td>";
+				echo "</tr>";
+				}
+			echo "</table>";?>
+		</div>
+
+		<a href="colaboradores/new.php?id=<? echo $id; ?>" class="btn btn-primary">Novo Colaborador</a>
 	</div>
 
 </div>
@@ -92,25 +121,10 @@
 	</div>
 </div>
 
-<!-- Modal Setores/New -->
-<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-<div class="modal-header">
-<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-<h3 id="myModalLabel">Modal header</h3>
-</div>
-<div class="modal-body">
-<?include('setores/new.php');?>
-</div>
-<div class="modal-footer">
-<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-<button class="btn btn-primary">Save changes</button>
-</div>
-</div>
-
-
-
-
-<?
+<?php
 	include('../layouts/footer.php');
 	eval(file_get_contents('../layouts/footer.php'));
+	
 ?>
+
+
