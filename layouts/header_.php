@@ -65,9 +65,9 @@
 				<div class="navbar">
 					<div class="navbar-inner">
 						<ul class="nav">
-							<li><a href="../setores/">Setores / Colaboradores</a></li>
+							<li><a href="../instituicoes/">A Instituição</a></li>
 							<li class="divider-vertical"></li>
-							<li><a href="../clientes/">Clientes / Solicitantes</a></li>
+							<li><a href="../clientes/">Clientes</a></li>
 							<li class="divider-vertical"></li>
 							<li><a href="../relatorios/">Relatórios</a></li>
 							<li class="divider-vertical"></li>
