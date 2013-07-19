@@ -4,9 +4,18 @@
 
 include('../../config.php'); 
 $id = (int) $_GET['id']; 
+
+$cliente = mysql_fetch_array ( mysql_query("SELECT * FROM `clientes` WHERE `id` = '$id'")); 
 ?>
 
-<h3>Cadastro de Solicitantes</h3>
+<ul class="breadcrumb">
+	<li><a href="../../">Início</a> <span class="divider">|</span></li>
+	<li><a href="../index.php">Clientes</a> <span class="divider">|</span></li>
+	<li><a href="../show.php?id=<? echo $id; ?>"><? echo $cliente['nome']; ?></a> <span class="divider">|</span></li>
+	<li class="active">Novo Solicitante</li>
+</ul>
+
+<h3>Novo Solicitante</h3>
 
 <? 
 if (isset($_POST['submitted'])) { 

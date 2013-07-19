@@ -3,10 +3,16 @@
 	eval(file_get_contents('../layouts/header.php'));
 ?>
 
+<ul class="breadcrumb">
+	<li><a href="../">Início</a> <span class="divider">|</span></li>
+	<li><a href="index.php">Instituições</a> <span class="divider">|</span></li>
+	<li class="active">Editar dados da Instituição</li>
+</ul>
+
 <h3>Editar dados da Instituição</h3>
 
 <? 
-include('config.php'); 
+include('../config.php'); 
 if (isset($_GET['id']) ) { 
 $id = (int) $_GET['id']; 
 if (isset($_POST['submitted'])) { 
@@ -21,9 +27,9 @@ $row = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHERE `id` 
 
 <form action='' method='POST'> 
 <p><b>Nome:</b><br /><input type='text' name='nome' value='<?= stripslashes($row['nome']) ?>' /> 
-<p><b>Desc:</b><br /><input type='text' name='desc' value='<?= stripslashes($row['desc']) ?>' /> 
+<p><b>Descrição:</b><br /><input type='text' name='desc' value='<?= stripslashes($row['desc']) ?>' /> 
 <p><b>Criado Em:</b><br /><input type='text' name='criado_em' value='<?= stripslashes($row['criado_em']) ?>' /> 
-<p><input type='submit' value='Edit Row' /><input type='hidden' value='1' name='submitted' /> 
+<p><input type='submit' value='Editar' class='btn btn-primary' /><input type='hidden' value='1' name='submitted' /> 
 </form> 
 <? } ?> 
 

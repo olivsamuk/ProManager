@@ -32,10 +32,16 @@ xmlhttp.onreadystatechange=function()
     document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
     }
   }
-xmlhttp.open("GET","getuser.php?q="+str,true);
+xmlhttp.open("GET","getuser.php?id=<? echo $id; ?>&q="+str,true);
 xmlhttp.send();
 }
 </script>
+
+<ul class="breadcrumb">
+	<li><a href="../">Início</a> <span class="divider">|</span></li>
+	<li><a href="index.php">Instituições</a> <span class="divider">|</span></li>
+	<li class="active"><? echo $instituicao['nome']; ?></li>
+</ul>
 
 <div class="row">
 	<div class="span4">
@@ -44,6 +50,8 @@ xmlhttp.send();
 		<? echo $instituicao['desc']; ?><br />
 		<b>Data de Criação:</b>
 		<? echo $instituicao['criado_em']; ?>
+		<br /><br />
+		<a href="edit.php?id=<? echo $id; ?>" class="btn btn-primary">Editar dados</a>
 	</div>
 
 	<div class="span4">
@@ -51,7 +59,7 @@ xmlhttp.send();
 		<table class="table table-bordered">
 			<tr>
 				<th>Nome</th>
-				<th>Ações</th>
+				<th colspan=2>Ações</th>
 			<tr>
 			<?
 			$counter=0;
@@ -59,10 +67,12 @@ xmlhttp.send();
 			while($setor = mysql_fetch_array($find_setores)){
 			?>
 				<tr>
-					<td><a href=""><? echo $setor['nome']; ?></a></td>
+					<td><? echo $setor['nome']; ?></td>
 					<td> 
-						<a href="setores/edit.php?id=<? echo $setor['id']; ?>&id_=<? echo $id; ?>" class="btn">Editar</a>
-						<a href="setores/delete.php?id=<? echo $setor['id']; ?>" class="btn">Remover</a>
+						<a href="setores/edit.php?id=<? echo $setor['id']; ?>&id_=<? echo $id; ?>" >Editar</a>
+					</td>
+					<td>
+						<a href="setores/delete.php?id=<? echo $setor['id']; ?>&id_=<? echo $id; ?>" >Remover</a>
 					</td>
 				</tr>
 			<?$counter++;}?>
@@ -89,28 +99,32 @@ xmlhttp.send();
 		<div id="txtHint">
 			<?
 			$result = mysql_query("SELECT * FROM colaboradores ");
+			?>
+			<table class='table table-bordered'>
+				<tr>
+					<th>Nome</th>
+					<th colspan=2>Ações</th>
+				</tr>
 
-			echo "<table class='table table-bordered'>";
-
+			<?
 			while($row = mysql_fetch_array($result))
 				{
-				echo "<tr>";
-				echo "<td>" . $row['nome'] . "</td>";
-				echo "</tr>";
+			?>
+				<tr>
+					<td><? echo $row['nome']; ?></td>
+					<td><a href="colaboradores/edit.php?id=<? echo $row['id']; ?>&id_=<? echo $id; ?>">Editar</a></td>
+					<td><a href="colaboradores/delete.php?id=<? echo $row['id']; ?>&id_=<? echo $id; ?>">Remover</a></td>
+				</tr>
+			<?
 				}
-			echo "</table>";?>
+			echo "</table>";
+
+			?> 
 		</div>
 
 		<a href="colaboradores/new.php?id=<? echo $id; ?>" class="btn btn-primary">Novo Colaborador</a>
 	</div>
 
-</div>
-
-<div class="row">
-	<div class="span12">
-		<br/><br/>
-		<a href='index.php'>Voltar</a>
-	</div>
 </div>
 
 <?php

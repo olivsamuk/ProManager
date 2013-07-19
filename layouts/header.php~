@@ -65,13 +65,13 @@
 				<div class="navbar">
 					<div class="navbar-inner">
 						<ul class="nav">
-							<li><a href="../instituicoes/">A Instituição</a></li>
+							<li><a href="../instituicoes/">Instituições</a></li>
 							<li class="divider-vertical"></li>
-							<li><a href="../clientes/">Clientes / Solicitantes</a></li>
-							<li class="divider-vertical"></li>
-							<li><a href="../relatorios/">Relatórios</a></li>
+							<li><a href="../clientes/">Clientes</a></li>
 							<li class="divider-vertical"></li>
 							<li><a href="../projetos/">Projetos</a></li>	
+							<li class="divider-vertical"></li>							
+							<li><a href="../relatorios/">Relatórios</a></li>
 							<li class="divider-vertical"></li>
 							<li><a href="../racs/">RAC's por Projeto</a></li>	
 						</ul>

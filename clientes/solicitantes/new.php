@@ -4,9 +4,18 @@
 
 include('../../config.php'); 
 $id = (int) $_GET['id']; 
+
+$cliente = mysql_fetch_array ( mysql_query("SELECT * FROM `clientes` WHERE `id` = '$id'")); 
 ?>
 
-<h3>Cadastro de Solicitantes</h3>
+<ul class="breadcrumb">
+	<li><a href="../../">Início</a> <span class="divider">|</span></li>
+	<li><a href="../index.php">Clientes</a> <span class="divider">|</span></li>
+	<li><a href="../show.php?id=<? echo $id; ?>"><? echo $cliente['nome']; ?></a> <span class="divider">|</span></li>
+	<li class="active">Novo Solicitante</li>
+</ul>
+
+<h3>Novo Solicitante</h3>
 
 <? 
 if (isset($_POST['submitted'])) { 
@@ -25,6 +34,6 @@ echo "<a href='../show.php?id=$id'>Voltar</a>";
 <p><b>Email:</b><br /><input type='text' name='email'/> 
 <p><b>Telefone:</b><br /><input type='text' name='telefone'/> 
 
-<p><input type='submit' value='Salvar'><input type='hidden' value='1' name='submitted' /> 
+<p><input type='submit' value='Salvar' class='btn btn-primary'><input type='hidden' value='1' name='submitted' /> 
 
 </form> 

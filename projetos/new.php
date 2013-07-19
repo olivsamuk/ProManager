@@ -37,8 +37,8 @@ if (isset($_POST['submitted'])) {
 foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
 $sql = "INSERT INTO `projetos` ( `titulo` ,  `desc` ,  `criado_em` ,  `atualizado_em`  ) VALUES(  '{$_POST['titulo']}' ,  '{$_POST['desc']}' ,  '{$_POST['criado_em']}' ,  '{$_POST['atualizado_em']}'  ) "; 
 mysql_query($sql) or die(mysql_error()); 
-echo "Added row.<br />"; 
-echo "<a href='index.php'>Back To Listing</a>"; 
+echo "Registro efetuado com sucesso.<br />";
+echo "<a href='index.php'>Voltar</a>"; 
 } 
 ?>
 

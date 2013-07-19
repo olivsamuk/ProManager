@@ -1,17 +1,27 @@
 <?php
 $q=$_GET["q"];
+$id=$_GET["id"];
 
 include('../config.php');
 
 $result = mysql_query("SELECT * FROM colaboradores WHERE setor_id = $q ");
+?>
+<table class='table table-bordered'>
+	<tr>
+		<th>Nome</th>
+		<th colspan=2>Ações</th>
+	</tr>
 
-echo "<table class='table table-bordered'>";
-
+<?
 while($row = mysql_fetch_array($result))
   {
-  echo "<tr>";
-  echo "<td>" . $row['nome'] . "</td>";
-  echo "</tr>";
+?>
+  <tr>
+  	<td><? echo $row['nome']; ?></td>
+		<td><a href="colaboradores/edit.php?id=<? echo $row['id']; ?>&id_=<? echo $id; ?>">Editar</a></td>
+		<td><a href="colaboradores/delete.php?id=<? echo $row['id']; ?>&id_=<? echo $id; ?>">Remover</a></td>
+  </tr>
+<?
   }
 echo "</table>";
 

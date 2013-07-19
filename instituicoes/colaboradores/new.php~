@@ -4,7 +4,16 @@
 
 include('../../config.php'); 
 $id = (int) $_GET['id']; 
+
+$instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHERE `id` = '$id'")); 
 ?>
+
+<ul class="breadcrumb">
+	<li><a href="../../">Início</a> <span class="divider">|</span></li>
+	<li><a href="../index.php">Instituições</a> <span class="divider">|</span></li>
+	<li><a href="../show.php?id=<? echo $id; ?>"><? echo $instituicao['nome']; ?></a> <span class="divider">|</span></li>
+	<li class="active">Novo Colaborador</li>
+</ul>
 
 <h3>Cadastro de Colaboradores</h3>
 

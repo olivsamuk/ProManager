@@ -4,7 +4,15 @@
 
 include('../../config.php'); 
 $id = (int) $_GET['id']; 
+$instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHERE `id` = '$id'")); 
 ?>
+
+<ul class="breadcrumb">
+	<li><a href="../../">Início</a> <span class="divider">|</span></li>
+	<li><a href="../index.php">Instituições</a> <span class="divider">|</span></li>
+	<li><a href="../show.php?id=<? echo $id; ?>"><? echo $instituicao['nome']; ?></a> <span class="divider">|</span></li>
+	<li class="active">Novo Setor</li>
+</ul>
 
 <h3>Novo Setor</h3>
 
@@ -21,8 +29,8 @@ echo "<a href='../show.php?id=$id'>Voltar</a>";
 <form action='' id='InfroText' method='POST'> 
 <input type='hidden' name='instituicao_id' value='<? echo $id; ?>' /> 
 <p><b>Nome:</b><br /><input type='text' id='nome' name='nome'/> 
-<p><b>Desc:</b><br /><input type='text' name='desc'/> 
-<p><input type='submit' value='Salvar' /><input type='hidden' value='1' name='submitted' /> 
+<p><b>Descrição:</b><br /><input type='text' name='desc'/> 
+<p><input type='submit' value='Salvar' class='btn btn-primary' /><input type='hidden' value='1' name='submitted' /> 
 </form> 
 
 <?php
