@@ -25,13 +25,13 @@ echo "<td><b>Projeto</b></td>";
 echo "<td><b>Motivo</b></td>"; 
 echo "<td><b>Etapa</b></td>"; 
 echo "<td><b>Data de criação</b></td>"; 
-echo "<td><b>Ações</b></td>";
+echo "<td colspan=3><b>Ações</b></td>";
 echo "</tr>"; 
-$result = mysql_query("SELECT * FROM `rac`") or trigger_error(mysql_error()); 
+$result = mysql_query("SELECT * FROM `rac` where projeto_id = $id") or trigger_error(mysql_error()); 
 while($row = mysql_fetch_array($result)){ 
 foreach($row AS $key => $value) { $row[$key] = stripslashes($value); } 
 echo "<tr>";  
-echo "<td valign='top'><a href='show.php?id=" . $row['id'] . "'>" . nl2br( $row['identificacao']) . "</a></td>";  
+echo "<td valign='top'><a href='show.php?id=" . $row['id'] . "&id_=$id'>" . nl2br( $row['identificacao']) . "</a></td>";  
 
 $cliente_id = $row['cliente_id'];
 $cliente = mysql_fetch_array ( mysql_query("SELECT * FROM `clientes` WHERE `id` = '$cliente_id'")); 
@@ -47,7 +47,7 @@ echo "<td valign='top'>" . nl2br( $row['motivo']) . "</td>";
 echo "<td valign='top'>" . nl2br( $row['etapa']) . "</td>";  
 
 echo "<td valign='top'>" . nl2br( $row['criado_em']) . "</td>";  
-echo "<td valign='top'><a href=edit.php?id={$row['id']}>Editar</a> | <a href=delete.php?id={$row['id']}&id_=$id>Remover</a></td> "; 
+echo "<td valign='top'><a href=edit.php?id={$row['id']}>Editar</a></td><td> <a href=delete.php?id={$row['id']}&id_=$id>Remover</a></td><td><a href='rac.php?id=" . $row['id'] . "&id_=$id'>Gerar RAC</a></td>"; 
 echo "</tr>"; 
 } 
 echo "</table>"; 

@@ -35,7 +35,7 @@ xmlhttp.send();
 include('../config.php'); 
 if (isset($_POST['submitted'])) { 
 foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
-$sql = "INSERT INTO `projetos` ( `titulo` ,  `desc` ,  `criado_em` ,  `atualizado_em`  ) VALUES(  '{$_POST['titulo']}' ,  '{$_POST['desc']}' ,  '{$_POST['criado_em']}' ,  '{$_POST['atualizado_em']}'  ) "; 
+$sql = "INSERT INTO `projetos` ( `titulo` ,  `desc` , `cliente_id` , `solicitante_id` ,  `criado_em` ,  `atualizado_em`  ) VALUES(  '{$_POST['titulo']}' ,  '{$_POST['desc']}' , '{$_POST['cliente_id']}' ,  '{$_POST['solicitante_id']}' ,  NOW() ,  '{$_POST['atualizado_em']}'  ) "; 
 mysql_query($sql) or die(mysql_error()); 
 echo "Registro efetuado com sucesso.<br />";
 echo "<a href='index.php'>Voltar</a>"; 
