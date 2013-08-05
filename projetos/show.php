@@ -8,6 +8,13 @@
 	$projeto = mysql_fetch_array ( mysql_query("SELECT * FROM `projetos` WHERE `id` = '$id'")); 
 ?>
 
+<style>
+.desc {
+		font-style:italic;
+		color:#606060;
+}
+</style>
+
 <script type="text/javascript">
 	function sleep(milliseconds) {
 		var start = new Date().getTime();
@@ -138,11 +145,11 @@ xmlhttp.send();
 
 </script>
 
-<div class="row">
-	<div class="span12">
-		<? echo "<h3>" . $projeto['titulo'] . "</h3>"; ?>
-	</div>
-</div>
+<ul class="breadcrumb">
+	<li><a href="../">Início</a> <span class="divider">|</span></li>
+	<li><a href="../projetos">Projetos</a> <span class="divider">|</span></li>
+	<li class="active"><? echo $projeto['titulo']; ?></li>
+</ul>
 
 <div class="row">
 	<div class="span4">
@@ -160,13 +167,13 @@ xmlhttp.send();
 					 if($resultado == 0){ ?>
 
 						<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-							<div class="post" id="<? echo $row['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $row['titulo'] . $row['id']; ?></div>
+							<div class="post" id="<? echo $row['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $row['titulo']; ?><br /><small class='desc'><? echo $row['desc']; ?></small></div>
 						</div>
 					</div>
 					<div class="row-fluid">
 					<?}else{?>
 						<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-							<div class="post" id="<? echo $row['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $row['titulo'] . $row['id']; ?></div>
+							<div class="post" id="<? echo $row['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $row['titulo']; ?><br /><small class='desc'><? echo $row['desc']; ?></small></div>
 						</div>
 					<?}?>
 
@@ -196,13 +203,13 @@ xmlhttp.send();
 					 if($resultado == 0){ ?>
 
 						<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-							<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $registro2['titulo'] . $registro2['id']; ?></div>
+							<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $registro2['titulo']; ?><br /><small class='desc'><? echo $registro2['desc']; ?></small></div>
 						</div>
 					</div>
 					<div class="row-fluid">
 					<?}else{?>
 						<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-							<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $registro2['titulo'] . $registro2['id']; ?></div>
+							<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $registro2['titulo']; ?><br /><small class='desc'><? echo $registro2['desc']; ?></small></div>
 						</div>
 					<?}?>
 
@@ -230,13 +237,13 @@ xmlhttp.send();
 					 if($resultado == 0){ ?>
 
 						<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-							<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $registro2['titulo'] . $registro2['id']; ?></div>
+							<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $registro2['titulo']; ?><br /><small class='desc'><? echo $registro2['desc']; ?></small></div>
 						</div>
 					</div>
 					<div class="row-fluid">
 					<?}else{?>
 						<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-							<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $registro2['titulo'] . $registro2['id']; ?></div>
+							<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $registro2['titulo']; ?><br /><small class='desc'><? echo $registro2['desc']; ?></small></div>
 						</div>
 					<?}?>
 

@@ -14,13 +14,13 @@ include('../config.php');
 	 if($resultado == 0){ ?>
 
 		<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-			<div class="post" id="<? echo $row['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $row['titulo'] . $row['id']; ?></div>
+			<div class="post" id="<? echo $row['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $row['titulo']; ?><br /><small class='desc'><? echo $row['desc']; ?></small></div>
 		</div>
 	</div>
 	<div class="row-fluid">
 	<?}else{?>
 		<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-			<div class="post" id="<? echo $row['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $row['titulo'] . $row['id']; ?></div>
+			<div class="post" id="<? echo $row['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $row['titulo']; ?><br /><small class='desc'><? echo $row['desc']; ?></small></div>
 		</div>
 	<?}?>
 

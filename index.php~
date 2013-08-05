@@ -46,7 +46,7 @@
 
 <div class="jumbotron masthead">
   <div class="container">
-    <h1>ProManager</h1>
+    <h1><img src="assets/images/promanager.png" /></h1>
     <p>Sistema de gerenciamento e acompanhamento de projetos.</p>
     <p>
       <a href="projetos/" class="btn btn-primary btn-large">Entrar no Sistema</a>
@@ -137,23 +137,5 @@
     <script src="assets/js/prettify.js"></script>
 
     <script src="assets/js/application.js"></script>
-
-    <!-- Analytics
-    ================================================== -->
-    <script>
-      var _gauges = _gauges || [];
-      (function() {
-        var t   = document.createElement('script');
-        t.type  = 'text/javascript';
-        t.async = true;
-        t.id    = 'gauges-tracker';
-        t.setAttribute('data-site-id', '4f0dc9fef5a1f55508000013');
-        t.src = '//secure.gaug.es/track.js';
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(t, s);
-      })();
-    </script>
-
-  
 
 </body></html>

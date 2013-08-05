@@ -46,7 +46,7 @@
 
 <div class="jumbotron masthead">
   <div class="container">
-    <h1>ProManager</h1>
+    <h1><img src="assets/images/promanager_.png" /></h1>
     <p>Sistema de gerenciamento e acompanhamento de projetos.</p>
     <p>
       <a href="projetos/" class="btn btn-primary btn-large">Entrar no Sistema</a>

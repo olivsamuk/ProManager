@@ -18,13 +18,13 @@ $resultado = $counter2%2;
 
  if($resultado == 0){ ?>
 	<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-		<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $registro2['titulo'] . $registro2['id']; ?></div>
+		<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $registro2['titulo']; ?><br /><small class='desc'><? echo $registro2['desc']; ?></small></div>
 	</div>
 </div>
 <div class="row-fluid">
 <?}else{?>
 	<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-		<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $registro2['titulo'] . $registro2['id']; ?></div>
+		<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $registro2['titulo']; ?><br /><small class='desc'><? echo $registro2['desc']; ?></small></div>
 	</div>
 <?}?>
 

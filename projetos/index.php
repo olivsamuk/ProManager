@@ -21,11 +21,11 @@ echo "<th>Solicitante</th>";
 echo "<th>Criado Em</th>"; 
 echo "<th colspan=3>Ações</th>";
 echo "</tr>"; 
-$result = mysql_query("SELECT * FROM `projetos`") or trigger_error(mysql_error()); 
+$result = mysql_query("SELECT * FROM `projetos` where colaborador_id = {$_SESSION['id_usuario']}") or trigger_error(mysql_error()); 
 while($row = mysql_fetch_array($result)){ 
 foreach($row AS $key => $value) { $row[$key] = stripslashes($value); } 
 echo "<tr>";  
-echo "<td valign='top'><a href='show.php?id=" . $row['id'] . "'>" . nl2br( $row['titulo']) . "</a></td>";  
+echo "<td valign='top'>" . nl2br( $row['titulo']) . "</td>";  
 echo "<td valign='top'>" . nl2br( $row['desc']) . "</td>";  
 $cliente_id = $row['cliente_id'];
 $cliente = mysql_fetch_array(mysql_query("SELECT * FROM `clientes` where id=$cliente_id"));
@@ -34,7 +34,7 @@ $row_id = $row['solicitante_id'];
 $solicitante = mysql_fetch_array(mysql_query("SELECT * FROM `solicitantes` where id=$row_id"));
 echo "<td valign='top'>" . nl2br( $solicitante['nome']) . "</td>";  
 echo "<td valign='top'>" . nl2br( $row['criado_em']) . "</td>";   
-echo "<td valign='top'><a href=edit.php?id={$row['id']}>Editar</a> </td><td> <a href=delete.php?id={$row['id']}>Remover</a></td> <td> <a href='racs/index.php?id={$row['id']}'>Ver RAC's</a></td> "; 
+echo "<td valign='top'><a href=edit.php?id={$row['id']}>Editar</a> </td><td> <a href=delete.php?id={$row['id']}>Remover</a></td> <td> <a href='racs/index.php?id={$row['id']}'>Ver RAC's</a></td> <td><a href='show.php?id=" . $row['id'] . "'>Acompanhar Demandas</a></td> "; 
 echo "</tr>"; 
 } 
 echo "</table>"; 

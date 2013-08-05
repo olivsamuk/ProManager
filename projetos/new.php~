@@ -35,7 +35,7 @@ xmlhttp.send();
 include('../config.php'); 
 if (isset($_POST['submitted'])) { 
 foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
-$sql = "INSERT INTO `projetos` ( `titulo` ,  `desc` , `cliente_id` , `solicitante_id` ,  `criado_em` ,  `atualizado_em`  ) VALUES(  '{$_POST['titulo']}' ,  '{$_POST['desc']}' , '{$_POST['cliente_id']}' ,  '{$_POST['solicitante_id']}' ,  NOW() ,  '{$_POST['atualizado_em']}'  ) "; 
+$sql = "INSERT INTO `projetos` ( `titulo` ,  `desc` , `cliente_id` , `solicitante_id` ,  `criado_em` ,  `colaborador_id`  ) VALUES(  '{$_POST['titulo']}' ,  '{$_POST['desc']}' , '{$_POST['cliente_id']}' ,  '{$_POST['solicitante_id']}' ,  NOW() ,  '{$_POST['colaborador_id']}'  ) "; 
 mysql_query($sql) or die(mysql_error()); 
 echo "Registro efetuado com sucesso.<br />";
 echo "<a href='index.php'>Voltar</a>"; 
@@ -43,6 +43,7 @@ echo "<a href='index.php'>Voltar</a>";
 ?>
 
 <form action='' method='POST'> 
+<input type='hidden' name='colaborador_id' value='<? echo $_SESSION['id_usuario']; ?>'>
 
 <b>Titulo:</b><br /><input type='text' name='titulo'/> <br/>
 <b>Descrição:</b><br /><textarea name='desc'/></textarea><br />
@@ -59,7 +60,7 @@ while($cliente = mysql_fetch_array($find_clientes)){ ?>
 
 <?}?>
 </select><br />
-<div id="txtHint">Texto aqui</div>
+<div id="txtHint"></div>
 
 
 <input type='submit' value='Salvar' class='btn btn-primary' /><input type='hidden' value='1' name='submitted' /> 

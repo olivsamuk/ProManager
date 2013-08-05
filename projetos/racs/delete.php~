@@ -8,6 +8,10 @@ include('../../config.php');
 $id = (int) $_GET['id']; 
 $id_ = (int) $_GET['id_'];
 mysql_query("DELETE FROM `rac` WHERE `id` = '$id' ") ; 
+
+
+DELETE a, b FROM rac AS a INNER JOIN demandas AS b ON a.AuthID=b.AuthID INNER JOIN Articles AS b ON ab.ArticleID=b.ArticleID WHERE AuthorFirstName='Tom';
+
 echo (mysql_affected_rows()) ? "<h3>Registro Removido!</h3><br /> " : "Nothing deleted.<br /> "; 
 ?> 
 

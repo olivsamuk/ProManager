@@ -35,6 +35,19 @@ h4 {
 	background-color:#fff;
 }
 
+.form-horizontal .control-label {
+	width:100px;
+}
+
+.form-horizontal .controls {
+	margin-left:110px;
+}
+
+.desc {
+		font-weight:italic;
+		color:#ccc;
+}
+
 .post {
 background:#fefabc; 
 padding:15px; 

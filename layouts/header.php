@@ -1,3 +1,8 @@
+<?
+// Verificador de sessão
+include("../check.php");
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
@@ -35,7 +40,7 @@
 		  <div class="navbar-inner">
 				<div class="container">
 					<ul class="nav">
-						<li><a href="">Samuel Silva - (Cotec/Prodap)</a></li>
+						<li><a href="">Olá, <? echo $_SESSION['nome_usuario'] ?></a></li>
 						<li class="divider-vertical"></li>
 						<li><a href="">Mensagens</a></li>
 						<li class="divider-vertical"></li>
@@ -54,8 +59,8 @@
   <div class="container">
 
     <div class="row">
-      <div class="span12" style="padding:40px 0">
-          <a class="title" href="index.php">Gerenciamento de Projetos</a> &nbsp;
+      <div class="span12" style="padding:20px 0">
+          <a class="title" href="index.php"><img src='../assets/images/promanager.png' width=350/></a> &nbsp;
 					Uma solução livre para acompanhamento de demandas
       </div>
     </div>

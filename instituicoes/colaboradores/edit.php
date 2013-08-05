@@ -21,7 +21,7 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 <?
 if (isset($_POST['submitted'])) { 
 foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
-$sql = "UPDATE `colaboradores` SET  `nome` =  '{$_POST['nome']}' ,  `setor_id` =  '{$_POST['setor_id']}' WHERE `id` = '$id' "; 
+$sql = "UPDATE `colaboradores` SET  `nome` =  '{$_POST['nome']}' ,  `setor_id` =  '{$_POST['setor_id']}' ,  `email` =  '{$_POST['email']}' ,  `permissao` =  '{$_POST['permissao']}' WHERE `id` = '$id' "; 
 mysql_query($sql) or die(mysql_error()); 
 echo (mysql_affected_rows()) ? "Edição Cncluída.<br />" : "Nothing changed. <br />"; 
 echo "<a href='../show.php?id=$id_'>Voltar</a><br />"; 
@@ -42,6 +42,13 @@ while($setor = mysql_fetch_array($find_setores)){
 <option value="<? echo $setor['id']; ?>"><? echo $setor['nome']; ?></option>
 <?}?>
 </select>
+<p><b>Email:</b><br /><input type='text' name='email' value='<?= stripslashes($row['email']) ?>' /> 
+<p><b>Permissão:</b><br />
+<select name='permissao'>
+	<option>--</option>
+	<option value=0>Colaborador</option>
+	<option value=1>Administrador</option>
+</select><br />
 <p><input type='submit' value='Editar' class='btn btn-primary' /><input type='hidden' value='1' name='submitted' /> 
 </form> 
 

@@ -14,7 +14,7 @@ $projeto = mysql_fetch_array ( mysql_query("SELECT * FROM `projetos` WHERE `id` 
 	<li class="active">Novo Rac</li>
 </ul>
 
-<h3>Cadastro de Clientes</h3>
+<h3>Cadastro de RAC's</h3>
 
 <? 
 $identificacao = date("Ymd");
