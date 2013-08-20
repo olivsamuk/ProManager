@@ -16,7 +16,7 @@ $sql = "INSERT INTO `demandas` (`titulo` , `desc` , `criado_em` , `rac_id` , `pr
 mysql_query($sql) or die(mysql_error()); 
 
 
-$find_demandas = mysql_query("SELECT * from `demandas` where rac_id = $rac_id_");
+$find_demandas = mysql_query("SELECT * from `demandas` where rac_id = $rac_id_ ORDER BY id DESC");
 
 
 echo "<table class='table table-bordered'>";
@@ -27,7 +27,7 @@ while($demanda = mysql_fetch_array($find_demandas)){
 <tr>
 	<td><? echo $demanda['titulo']; ?></td>
 	<td><? echo $demanda['desc']; ?></td>
-	<td><a href="delete.php?id=<? echo $rac_id_ ?>">Remover</a></td>
+	<td><a href="delete_demanda.php?id=<? echo $demanda['id']; ?>&id_rac=<? echo $rac_id_; ?>&id_projeto=<? echo $projeto_id_ ?>">Remover</a></td>
 </tr>
 
 <?}?>

@@ -1,8 +1,0 @@
-<?
-$q = "112";
-
-echo substr($q, 1);
-echo "<br/>";
-echo $q{0};
-
-?>

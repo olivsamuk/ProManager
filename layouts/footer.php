@@ -22,29 +22,5 @@
     <script src="../assets/javascripts/holder/holder.js"></script>
     <script src="../assets/javascripts/google-code-prettify/prettify.js"></script>
     <script src="../assets/javascripts/application.js"></script>
-		<script>
-		$('#InfroTextSubmit').click(function(){
-    
-    if ($('#nome').val()==="") {
-      // invalid
-      $('#nome').next('.help-inline').show();
-      return false;
-    }
-    else {
-			$('#myModal').modal('hide');
-      // submit the form here
-      $('#InfroText').submit();
-      
-      return true;
-    }      
-      
-});
-		</script>
-
-		<script>
-		$('#myModal').on('hidden', function () {
-			alert("testee");
-		});
-		</script>
 
 </html>

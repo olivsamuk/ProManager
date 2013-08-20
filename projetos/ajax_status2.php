@@ -18,20 +18,38 @@ $resultado = $counter2%2;
 
  if($resultado == 0){ ?>
 	<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-		<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $registro2['titulo']; ?><br /><small class='desc'><? echo $registro2['desc']; ?></small></div>
+		<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
+			<? echo $registro2['titulo']; ?>
+			<br />
+			<small class='desc'><? echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
+			<?
+			$find_problemas_i = mysql_query("SELECT * from `problemas` where demanda_id = {$registro2['id']}");
+			while($problema = mysql_fetch_array($find_problemas_i)){			
+				echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
+			}								
+			?>
+		</div>
 	</div>
 </div>
 <div class="row-fluid">
 <?}else{?>
 	<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-		<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $registro2['titulo']; ?><br /><small class='desc'><? echo $registro2['desc']; ?></small></div>
+		<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
+			<? echo $registro2['titulo']; ?>
+			<br />
+			<small class='desc'><? echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
+			<?
+			$find_problemas_i = mysql_query("SELECT * from `problemas` where demanda_id = {$registro2['id']}");
+			while($problema = mysql_fetch_array($find_problemas_i)){			
+				echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
+			}								
+			?>
+		</div>
 	</div>
 <?}?>
 
-<?$counter2++;}
+<?$counter2++;}?>
 
-echo "<div class='span6 prepost novademanda' id='2' ondrop='drop(event)' ondragover='allowDrop(event)'>Solte demandas aqui!</div></div>";
-
-?> 
+	<div class='span6 prepost novademanda' id='2' ondrop='drop(event)' ondragover='allowDrop(event)'>Solte demandas aqui!</div>
 
 

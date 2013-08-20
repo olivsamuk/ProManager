@@ -6,16 +6,15 @@
 <? 
 include('../../config.php'); 
 $id = (int) $_GET['id']; 
-$id_ = (int) $_GET['id_'];
-mysql_query("DELETE FROM `rac` WHERE `id` = '$id' ") ; 
+$id_rac = (int) $_GET['id_rac'];
+$id_projeto = (int) $_GET['id_projeto'];
 
-
-DELETE a, b FROM rac AS a INNER JOIN demandas AS b ON a.AuthID=b.AuthID INNER JOIN Articles AS b ON ab.ArticleID=b.ArticleID WHERE AuthorFirstName='Tom';
+mysql_query("DELETE FROM `demandas` WHERE `id` = '$id' ") ; 
 
 echo (mysql_affected_rows()) ? "<h3>Registro Removido!</h3><br /> " : "Nothing deleted.<br /> "; 
 ?> 
 
-<a href="index.php?id=<? echo $id_; ?>">Voltar</a>
+<a href="show.php?id=<? echo $id_rac; ?>&id_=<? echo $id_projeto; ?>">Voltar</a>
 
 <?php
 	include('../../layouts/footer_.php');

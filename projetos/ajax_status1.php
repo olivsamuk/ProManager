@@ -14,13 +14,33 @@ include('../config.php');
 	 if($resultado == 0){ ?>
 
 		<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-			<div class="post" id="<? echo $row['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $row['titulo']; ?><br /><small class='desc'><? echo $row['desc']; ?></small></div>
+			<div class="post" id="<? echo $row['id']; ?>" draggable="true" ondragstart="drag(event)">
+				<? echo $row['titulo']; ?>
+				<br />
+				<small class='desc'><? echo substr ($row['desc'], 0, 20) . "..."; ?></small>
+				<?
+				$find_problemas = mysql_query("SELECT * from `problemas` where demanda_id = {$row['id']}");
+				while($problema = mysql_fetch_array($find_problemas)){			
+					echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
+				}								
+				?>
+			</div>
 		</div>
 	</div>
 	<div class="row-fluid">
 	<?}else{?>
 		<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-			<div class="post" id="<? echo $row['id']; ?>" draggable="true" ondragstart="drag(event)"><? echo $row['titulo']; ?><br /><small class='desc'><? echo $row['desc']; ?></small></div>
+			<div class="post" id="<? echo $row['id']; ?>" draggable="true" ondragstart="drag(event)">
+				<? echo $row['titulo']; ?>
+				<br />
+				<small class='desc'><? echo substr ($row['desc'], 0, 20) . "..."; ?></small>
+				<?
+				$find_problemas = mysql_query("SELECT * from `problemas` where demanda_id = {$row['id']}");
+				while($problema = mysql_fetch_array($find_problemas)){			
+					echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
+				}								
+				?>
+			</div>
 		</div>
 	<?}?>
 
@@ -28,4 +48,5 @@ include('../config.php');
 
 
 		<div class='span6 prepost novademanda' id='1' ondrop='drop(event)' ondragover='allowDrop(event)'>Solte demandas aqui!</div>
+
 </div><!--/row-fluid-->
