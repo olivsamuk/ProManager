@@ -41,7 +41,7 @@ if($total)
         $_SESSION["id_usuario"]   = $dados["id"];
         $_SESSION["nome_usuario"] = stripslashes($dados["nome"]);
         $_SESSION["permissao"] = stripslashes($dados["permissao"]);
-        header("Location: projetos/");
+        header("Location: projetos/index.php");
         exit;
     }
     // Senha inválida
