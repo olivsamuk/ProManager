@@ -1,6 +1,8 @@
 <?php
 	include('layouts/header.php');
 	file_get_contents('layouts/header.php');
+
+	$id = $_SESSION["id_usuario"];
 ?>
 
 <ul class="breadcrumb">

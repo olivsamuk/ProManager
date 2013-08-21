@@ -42,7 +42,7 @@ include("../check.php");
 					<ul class="nav">
 						<li><a href="">Olá, <? echo $_SESSION['nome_usuario'] ?></a></li>
 						<li class="divider-vertical"></li>
-						<li><a href="">Configurações</a></li>
+						<li><a href="../mudar_senha.php">Alterar Senha</a></li>
 						<li class="divider-vertical"></li>
 						<li><a href="../sair.php">Sair</a></li>
 					</ul>
