@@ -7,13 +7,13 @@ file_get_contents('../../layouts/header_.php');
 
 <ul class="breadcrumb">
 	<li><a href="index.php">Início</a> <span class="divider">|</span></li>
-	<li class="active">Seus Projetos</li>
+	<li class="active">Altere seus dados</li>
 </ul>
 
 <div class="row">
 	<div class="span12">
 
-		<h3>Mudar Senha</h3>
+		<h3>Altere seus dados</h3>
 		<? 
 		include('../../config.php');  
 
