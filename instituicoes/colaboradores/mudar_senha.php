@@ -15,7 +15,7 @@ file_get_contents('../../layouts/header_.php');
 
 		<h3>Mudar Senha</h3>
 		<? 
-		include('config.php'); 
+		include('../../config.php');  
 
 		$senhapura = $_POST['senha'];
 		$cript_senha = md5($senhapura);  
@@ -27,7 +27,7 @@ file_get_contents('../../layouts/header_.php');
 		echo (mysql_affected_rows()) ? "Usuario Atualizado com Sucesso!<br />" : "Erro. <br />"; 
 		echo "<meta http-equiv='refresh' content='1; url=projetos/index.php' />";
 		} 
-		$row = mysql_fetch_array ( mysql_query("SELECT * FROM `usuarios` WHERE `id` = '$id' ")); 
+		$row = mysql_fetch_array ( mysql_query("SELECT * FROM `colaboradores` WHERE `id` = '$id' ")); 
 		?>
 
 		<form action='' method='POST'> 
