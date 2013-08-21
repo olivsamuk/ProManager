@@ -25,7 +25,7 @@ file_get_contents('../../layouts/header_.php');
 		$sql = "UPDATE `colaboradores` SET  `nome` =  '{$_POST['nome']}' ,  `email` =  '{$_POST['email']}' ,  `senha` =  '$cript_senha' WHERE `id` = '$id' "; 
 		mysql_query($sql) or die(mysql_error()); 
 		echo (mysql_affected_rows()) ? "Usuario Atualizado com Sucesso!<br />" : "Erro. <br />"; 
-		echo "<meta http-equiv='refresh' content='1; url=projetos/index.php' />";
+		echo "<meta http-equiv='refresh' content='1; url=../../projetos/index.php' />";
 		} 
 		$row = mysql_fetch_array ( mysql_query("SELECT * FROM `colaboradores` WHERE `id` = '$id' ")); 
 		?>
