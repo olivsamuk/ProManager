@@ -1,6 +1,6 @@
 <?php
-	include('layouts/header.php');
-	file_get_contents('layouts/header.php');
+include('../../layouts/header_.php');
+file_get_contents('../../layouts/header_.php');
 
 	$id = $_SESSION["id_usuario"];
 ?>
@@ -42,7 +42,7 @@
 
 
 <?php
-	include('layouts/footer.php');
-	file_get_contents('layouts/footer.php');
+include('../../layouts/footer_.php');
+file_get_contents('../../layouts/footer_.php');
 ?>
 
