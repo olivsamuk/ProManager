@@ -22,7 +22,7 @@
 
 		if (isset($_POST['submitted'])) { 
 		foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
-		$sql = "UPDATE `solicitantes` SET  `nome` =  '{$_POST['nome']}' ,  `email` =  '{$_POST['email']}' ,  `senha` =  '$cript_senha' WHERE `id` = '$id' "; 
+		$sql = "UPDATE `colaboradores` SET  `nome` =  '{$_POST['nome']}' ,  `email` =  '{$_POST['email']}' ,  `senha` =  '$cript_senha' WHERE `id` = '$id' "; 
 		mysql_query($sql) or die(mysql_error()); 
 		echo (mysql_affected_rows()) ? "Usuario Atualizado com Sucesso!<br />" : "Erro. <br />"; 
 		echo "<meta http-equiv='refresh' content='1; url=projetos/index.php' />";
