@@ -67,7 +67,7 @@ CREATE TABLE `colaboradores` (
 
 LOCK TABLES `colaboradores` WRITE;
 /*!40000 ALTER TABLE `colaboradores` DISABLE KEYS */;
-INSERT INTO `colaboradores` VALUES (1,'Samuel Silva de Oliveira','olivsamuk@gmail.com','e10adc3949ba59abbe56e057f20f883e','1',78,'2013-07-17 18:02:59'),(2,'Pedro Moutinho','','','',78,'2013-07-17 18:08:57'),(3,'Bruno Garcia','','','',78,'2013-07-17 18:09:03'),(4,'Marcio Brasil','','','',78,'2013-07-17 18:09:10'),(5,'Rafael Brito','','','',83,'2013-07-17 18:10:08'),(6,'Rodrigo Sebastiani','','','',83,'2013-07-17 18:25:00'),(7,'Vinicius','','','',83,'2013-07-17 18:25:07'),(8,'Jose Alipio Diniz Junior','alipio@prodap.ap.gov.br','e10adc3949ba59abbe56e057f20f883e','1',84,'2013-07-30 16:02:52');
+INSERT INTO `colaboradores` VALUES (1,'Samuel Silva de Oliveira','olivsamuk@gmail.com','e10adc3949ba59abbe56e057f20f883e','1',78,'2013-07-17 18:02:59'),(2,'Pedro Moutinho','pedromoutinho_jr@prodap.ap.gov.br','e10adc3949ba59abbe56e057f20f883e','',78,'2013-07-17 18:08:57'),(3,'Bruno Garcia','brunogarcia@prodap.ap.gov.br','e10adc3949ba59abbe56e057f20f883e','',78,'2013-07-17 18:09:03'),(4,'Marcio Brasil','marcio@prodap.ap.gov.br','e10adc3949ba59abbe56e057f20f883e','',78,'2013-07-17 18:09:10'),(5,'Ronaldo Moura Palha','miranda@prodap.ap.gov.br','e10adc3949ba59abbe56e057f20f883e','',78,'2013-07-17 18:09:10'),(6,'Célio Conrado','celio@prodap.ap.gov.br','e10adc3949ba59abbe56e057f20f883e','',78,'0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `colaboradores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -281,4 +281,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-08-21 15:54:13
+-- Dump completed on 2013-08-21 17:16:00

@@ -28,6 +28,7 @@ Na área dos projetos, encontre o projeto em que deseja criar o Relatório e no 
 A criação de um relatório se dá em duas fases.
 Na primeira fase, devem ser informados o motivo do relatório (Ex. Criação de Web-site) e a Etapa em que o Projeto se encontra.
 Na segunda fase, devem ser adicionadas todas as demandas deste projeto. Todo o diagnóstico da análise de requisitos para o projeto do cliente deve ser adicionado ao relatório em forma de demandas.
+O relatório pode então ser impresso e entregue ao Cliente. Todos os relatórios ficarão guardados no sistema.
 
 5 - Acompanhamento das Demandas
 Na área dos projetos, encontre o projeto que deseja acompanhar e no botão "Escolha uma Ação", escolha a opção "Acompanhar Demandas".
