@@ -42,8 +42,6 @@ include("../check.php");
 					<ul class="nav">
 						<li><a href="">Olá, <? echo $_SESSION['nome_usuario'] ?></a></li>
 						<li class="divider-vertical"></li>
-						<li><a href="">Mensagens</a></li>
-						<li class="divider-vertical"></li>
 						<li><a href="">Configurações</a></li>
 						<li class="divider-vertical"></li>
 						<li><a href="">Sair</a></li>
@@ -61,7 +59,7 @@ include("../check.php");
     <div class="row">
       <div class="span12" style="padding:20px 0">
           <a class="title" href="index.php"><img src='../assets/images/promanager.png' width=350/></a> &nbsp;
-					Uma solução livre para acompanhamento de demandas
+					Uma solução livre para Acompanhamento de Projetos
       </div>
     </div>
 
@@ -70,11 +68,11 @@ include("../check.php");
 				<div class="navbar">
 					<div class="navbar-inner">
 						<ul class="nav">
-							<li><a href="../instituicoes/">Instituições</a></li>
+							<li><a href="../instituicoes/index.php">Instituições</a></li>
 							<li class="divider-vertical"></li>
-							<li><a href="../clientes/">Clientes</a></li>
+							<li><a href="../clientes/index.php">Clientes</a></li>
 							<li class="divider-vertical"></li>
-							<li><a href="../projetos/">Projetos</a></li>	
+							<li><a href="../projetos/index.php">Projetos</a></li>	
 							<li class="divider-vertical"></li>							
 							<li><a href="../relatorios/">Relatórios</a></li>
 						</ul>
