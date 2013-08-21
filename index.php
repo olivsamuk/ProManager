@@ -49,7 +49,7 @@
     <h1><img src="assets/images/promanager_.png" /></h1>
     <p>Sistema de gerenciamento e acompanhamento de projetos.</p>
     <p>
-      <a href="projetos/" class="btn btn-primary btn-large">Entrar no Sistema</a>
+      <a href="projetos/index.php" class="btn btn-primary btn-large">Entrar no Sistema</a>
     </p>
     <ul class="masthead-links">
       <li>

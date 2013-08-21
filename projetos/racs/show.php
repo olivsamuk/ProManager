@@ -17,7 +17,7 @@ $solicitante = mysql_fetch_array ( mysql_query("SELECT * FROM `solicitantes` WHE
 <script language="javascript" src="ajax.js" type="text/javascript"></script>
 
 <ul class="breadcrumb">
-	<li><a href="../../">Início</a> <span class="divider">|</span></li>
+	<li><a href="../../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="../index.php">Projetos</a> <span class="divider">|</span></li>
 	<li><a href=""><? echo $projeto['titulo']; ?></a> <span class="divider">|</span></li>
 	<li><a href="">RAC-<? echo $rac['identificacao']; ?></a> <span class="divider">|</span></li>

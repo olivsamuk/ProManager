@@ -17,7 +17,7 @@
 
 <ul class="breadcrumb">
 	<li><a href="../">Início</a> <span class="divider">|</span></li>
-	<li><a href="../projetos">Projetos</a> <span class="divider">|</span></li>
+	<li><a href="../projetos/index.php">Projetos</a> <span class="divider">|</span></li>
 	<li class="active"><? echo $projeto['titulo']; ?></li>
 </ul>
 
