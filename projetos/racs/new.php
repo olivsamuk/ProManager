@@ -1,6 +1,6 @@
 <?php
 	include('../../layouts/header_.php');
-	eval(file_get_contents('../../layouts/header_.php'));
+	file_get_contents('../../layouts/header_.php');
 
 include('../../config.php'); 
 
@@ -43,5 +43,5 @@ echo "<meta http-equiv='refresh' content='1; url=show.php?id={$novorac['id']}&id
 
 <?php
 	include('../../layouts/footer_.php');
-	eval(file_get_contents('../layouts/footer_.php'));
+	eval(file_get_contents('../../layouts/footer_.php'));
 ?>

@@ -1,6 +1,6 @@
 <?
 	include('../../layouts/header_.php');
-	eval(file_get_contents('../../layouts/header_.php'));
+	file_get_contents('../../layouts/header_.php');
 
 
 include('../../config.php'); 

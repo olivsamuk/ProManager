@@ -1,6 +1,6 @@
 <?
 include('../../layouts/header_.php');
-eval(file_get_contents('../../layouts/header_.php'));
+file_get_contents('../../layouts/header_.php');
 
 include('../../config.php'); 
 $id = (int) $_GET['id']; 
@@ -55,5 +55,5 @@ while($setor = mysql_fetch_array($find_setores)){
 
 <?
 	include('../../layouts/footer_.php');
-	eval(file_get_contents('../../layouts/footer_.php'));
+	file_get_contents('../../layouts/footer_.php');
 ?>

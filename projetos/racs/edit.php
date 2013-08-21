@@ -1,6 +1,6 @@
 <?php
 	include('../../layouts/header_.php');
-	eval(file_get_contents('../../layouts/header_.php'));
+	file_get_contents('../../layouts/header_.php');
 ?>
 
 <h3>Editar RAC</h3>
@@ -29,5 +29,5 @@ $row = mysql_fetch_array ( mysql_query("SELECT * FROM `rac` WHERE `id` = '$id' "
 
 <?php
 	include('../../layouts/footer_.php');
-	eval(file_get_contents('../layouts/footer_.php'));
+	file_get_contents('../../layouts/footer_.php');
 ?>

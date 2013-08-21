@@ -1,6 +1,6 @@
 <?php
 	include('../layouts/header.php');
-	eval(file_get_contents('../layouts/header.php'));
+	file_get_contents('../layouts/header.php');
 ?>
 
 <? 
@@ -14,5 +14,5 @@ echo (mysql_affected_rows()) ? "<h3>Registro Removido com sucesso!</h3><br /> " 
 
 <?php
 	include('../layouts/footer.php');
-	eval(file_get_contents('../layouts/footer.php'));
+	file_get_contents('../layouts/footer.php');
 ?>

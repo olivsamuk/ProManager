@@ -1,6 +1,6 @@
 <?php
 	include('../layouts/header.php');
-	eval(file_get_contents('../layouts/header.php'));
+	file_get_contents('../layouts/header.php');
 ?>
 
 <ul class="breadcrumb">
@@ -35,5 +35,5 @@ $row = mysql_fetch_array ( mysql_query("SELECT * FROM `clientes` WHERE `id` = '$
 
 <?php
 	include('../layouts/footer.php');
-	eval(file_get_contents('../layouts/footer.php'));
+	file_get_contents('../layouts/footer.php');
 ?>

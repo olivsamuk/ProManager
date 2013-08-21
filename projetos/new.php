@@ -1,6 +1,6 @@
 <?php
 	include('../layouts/header.php');
-	eval(file_get_contents('../layouts/header.php'));
+	file_get_contents('../layouts/header.php');
 ?>
 
 <script>
@@ -76,5 +76,5 @@ while($cliente = mysql_fetch_array($find_clientes)){ ?>
 
 <?php
 	include('../layouts/footer.php');
-	eval(file_get_contents('../layouts/footer.php'));
+	file_get_contents('../layouts/footer.php');
 ?>

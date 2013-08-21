@@ -1,6 +1,6 @@
 <?php
 	include('../layouts/header.php');
-	eval(file_get_contents('../layouts/header.php'));
+	file_get_contents('../layouts/header.php');
 ?>
 
 <ul class="breadcrumb">
@@ -34,5 +34,5 @@ echo "<a href=new.php class='btn btn-primary'>Criar nova Instituição</a>";
 
 <?php
 	include('../layouts/footer.php');
-	eval(file_get_contents('../layouts/footer.php'));
+	file_get_contents('../layouts/footer.php');
 ?>
