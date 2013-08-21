@@ -44,7 +44,7 @@ include("../check.php");
 						<li class="divider-vertical"></li>
 						<li><a href="">Configurações</a></li>
 						<li class="divider-vertical"></li>
-						<li><a href="">Sair</a></li>
+						<li><a href="../sair.php">Sair</a></li>
 					</ul>
 					<form class="navbar-search pull-right">
 						<input type="text" class="search-query" placeholder="Pesquisa...">
