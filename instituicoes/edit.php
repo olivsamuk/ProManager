@@ -4,7 +4,7 @@
 ?>
 
 <ul class="breadcrumb">
-	<li><a href="../">Início</a> <span class="divider">|</span></li>
+	<li><a href="../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="index.php">Instituições</a> <span class="divider">|</span></li>
 	<li class="active">Editar dados da Instituição</li>
 </ul>

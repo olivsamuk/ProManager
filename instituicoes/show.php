@@ -38,7 +38,7 @@ xmlhttp.send();
 </script>
 
 <ul class="breadcrumb">
-	<li><a href="../">Início</a> <span class="divider">|</span></li>
+	<li><a href="../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="index.php">Instituições</a> <span class="divider">|</span></li>
 	<li class="active"><? echo $instituicao['nome']; ?></li>
 </ul>

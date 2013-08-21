@@ -10,7 +10,7 @@ $cliente = mysql_fetch_array ( mysql_query("SELECT * FROM `clientes` WHERE `id` 
 ?>
 
 <ul class="breadcrumb">
-	<li><a href="../../">Início</a> <span class="divider">|</span></li>
+	<li><a href="../../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="../index.php">Clientes</a> <span class="divider">|</span></li>
 	<li><a href="../show.php?id=<? echo $id_; ?>"><? echo $cliente['nome']; ?></a> <span class="divider">|</span></li>
 	<li class="active">Editar Solicitante</li>

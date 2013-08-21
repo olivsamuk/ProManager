@@ -10,7 +10,7 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 ?>
 
 <ul class="breadcrumb">
-	<li><a href="../../">Início</a> <span class="divider">|</span></li>
+	<li><a href="../../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="../index.php">Instituições</a> <span class="divider">|</span></li>
 	<li><a href="../show.php?id=<? echo $id_; ?>"><? echo $instituicao['nome']; ?></a> <span class="divider">|</span></li>
 	<li class="active">Editar Colaborador</li>
