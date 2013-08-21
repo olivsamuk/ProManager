@@ -82,18 +82,18 @@
     <div class="row-fluid">
       <div class="span4">
         <img class="marketing-img" src="assets/img/empresa.png">
-        <h2>Cadastre Empresas.</h2>
-        <p>A partir do cadastro de empresas você pode começar a gerir as obras governamentais.</p>
+        <h2>Cadastre seus Clientes</h2>
+        <p>A partir do cadastro de clientes e solicitantes você pode criar e gerir seus projetos. Esses dados servirão de base para os projetos futuros!</p>
       </div>
       <div class="span4">
         <img class="marketing-img" src="assets/img/obras.png">
-        <h2>Cadastre as obras.</h2>
-        <p>Utilize dados de contratos para cadastrar as obras e assim poder acompanhar seu desenvolvimento.</p>
+        <h2>Crie seus Projetos e Relatórios</h2>
+        <p>Utilize os dados da análise de requisitos para cadastrar os Relatórios do cliente e assim poder acompanhar seu desenvolvimento.</p>
       </div>
       <div class="span4">
         <img class="marketing-img" src="assets/img/bs-docs-bootstrap-features.png">
-        <h2>Alimente dados sobre as obras.</h2>
-        <p>Com as obras cadastradas, é possível alimentar o sistema com informações de termos aditivos, boletions de medição, álbuns de fotos e documentos em geral.</p>
+        <h2>Acompanhe o desenvolvimento</h2>
+        <p>Com esses dados cadastrados, acompanhe e modifique o status de cada tarefa gerada pelo relatório. Dessa forma, você organiza suas tarefas e mede sua produtividade</p>
       </div>
     </div>
 
