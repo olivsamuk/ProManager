@@ -23,7 +23,14 @@
 
 <div class="row">
 	<div class="span12">
-		<a href="#myModal" role="button" class="btn btn-danger" data-toggle="modal">Informar Problemas</a><br /><br />
+	  <ul class="nav nav-pills">
+    	<li>
+   			<a href="#myModal" role="button" data-toggle="modal">Informar Problemas</a>
+    	</li>
+    	<li>
+				<a href="javascript: document.getElementById('myForm').submit();">Ver Relatórios</a>
+    	</li>
+    </ul>
 	</div>
 </div>
 
@@ -36,6 +43,7 @@
 					<?
 					$counter=1;
 					$result = mysql_query("SELECT * FROM `demandas` where projeto_id=$id and status=1") or trigger_error(mysql_error()); 
+					$n_iniciados = mysql_num_rows($result);
 					while($row = mysql_fetch_array($result)){ 
 					foreach($row AS $key => $value) { $row[$key] = stripslashes($value); }  
 					$resultado = $counter%2; 
@@ -92,6 +100,7 @@
 					<?
 					$counter2=1;
 					$demandas_status2 = mysql_query("SELECT * FROM `demandas` where projeto_id=$id and status=2") or trigger_error(mysql_error()); 
+					$iniciados = mysql_num_rows($demandas_status2);
 					while($registro2 = mysql_fetch_array($demandas_status2)){ 
 					foreach($registro2 AS $key => $value) { $registro2[$key] = stripslashes($value); }  
 					$resultado = $counter2%2; 
@@ -146,6 +155,7 @@
 					<?
 					$counter2=1;
 					$demandas_status2 = mysql_query("SELECT * FROM `demandas` where projeto_id=$id and status=3") or trigger_error(mysql_error()); 
+					$finalizados = mysql_num_rows($demandas_status2);
 					while($registro2 = mysql_fetch_array($demandas_status2)){ 
 					foreach($registro2 AS $key => $value) { $registro2[$key] = stripslashes($value); }  
 					$resultado = $counter2%2; 
@@ -192,6 +202,14 @@
 		</div>
 	</div>
 </div> <!-- /row -->
+
+
+<form method="POST" action="reports.php" id="myForm">
+	<input type="hidden" name="n_iniciados" value="<?php echo $n_iniciados; ?>">
+	<input type="hidden" name="iniciados" value="<?php echo $iniciados; ?>">
+	<input type="hidden" name="finalizados" value="<?php echo $finalizados; ?>"> 
+	<input type="hidden" name="id" value="<?php echo $id; ?>">
+</form>
 
 
 <? 

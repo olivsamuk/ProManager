@@ -21,6 +21,7 @@ include("../../check.php");
 
     <link href="../../assets/stylesheets/bootstrap.css" rel="stylesheet">
     <link href="../../assets/stylesheets/bootstrap-responsive.css" media="all" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css">
     <link href="../../assets/stylesheets/estilos.css" media="screen" rel="stylesheet" type="text/css">
 
     <!-- Le fav and touch icons -->

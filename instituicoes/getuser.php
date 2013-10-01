@@ -6,7 +6,7 @@ include('../config.php');
 
 $result = mysql_query("SELECT * FROM colaboradores WHERE setor_id = $q ");
 ?>
-<table class='table table-bordered'>
+<table class='table table-striped table-bordered'>
 	<tr>
 		<th>Nome</th>
 		<th colspan=2>Ações</th>
