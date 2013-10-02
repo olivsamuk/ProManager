@@ -15,25 +15,34 @@ $cliente = mysql_fetch_array ( mysql_query("SELECT * FROM `clientes` WHERE `id` 
 	<li class="active">Novo Solicitante</li>
 </ul>
 
-<h3>Novo Solicitante</h3>
+<div class="widget">
+		
+	<div class="widget-header">
+		<i class="icon-th-list"></i>
+		<h3>Novo Solicitante <small> - Insira os dados do solicitante do cliente <? echo $cliente['nome']; ?></small></h3>
+	</div> <!-- /widget-header -->
+	
+	<div class="widget-content">
+		<? 
+		if (isset($_POST['submitted'])) { 
+		foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
+		$sql = "INSERT INTO `solicitantes` ( `nome` , `cargo` , `email`, `telefone` , `cliente_id` ,  `criado_em`  ) VALUES(  '{$_POST['nome']}' , '{$_POST['cargo']}' , '{$_POST['email']}' , '{$_POST['telefone']}' ,   '{$_POST['cliente_id']}' ,  NOW()  ) "; 
+		mysql_query($sql) or die(mysql_error()); 
+		echo "Registro efetuado com sucesso.<br />"; 
+		echo "<meta http-equiv='refresh' content='1; url=../show.php?id=$id' />";
+		} 
+		?>
 
-<? 
-if (isset($_POST['submitted'])) { 
-foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
-$sql = "INSERT INTO `solicitantes` ( `nome` , `cargo` , `email`, `telefone` , `cliente_id` ,  `criado_em`  ) VALUES(  '{$_POST['nome']}' , '{$_POST['cargo']}' , '{$_POST['email']}' , '{$_POST['telefone']}' ,   '{$_POST['cliente_id']}' ,  NOW()  ) "; 
-mysql_query($sql) or die(mysql_error()); 
-echo "Registro efetuado com sucesso.<br />"; 
-echo "<a href='../show.php?id=$id'>Voltar</a>"; 
-} 
-?>
+		<form action='' method='POST'> 
+			<input type='hidden' name='cliente_id' value='<? echo $id; ?>'><br />
+			<b>Nome:</b><br /><input type='text' name='nome'/> <br />
+			<b>Cargo:</b><br /><input type='text' name='cargo'/> <br />
+			<b>Email:</b><br /><input type='text' name='email'/> <br />
+			<b>Telefone:</b><br /><input type='text' name='telefone'/> <br />
 
-<form action='' method='POST'> 
-<input type='hidden' name='cliente_id' value='<? echo $id; ?>'>
-<p><b>Nome:</b><br /><input type='text' name='nome'/> 
-<p><b>Cargo:</b><br /><input type='text' name='cargo'/> 
-<p><b>Email:</b><br /><input type='text' name='email'/> 
-<p><b>Telefone:</b><br /><input type='text' name='telefone'/> 
+			<p><input type='submit' value='Salvar' class='btn btn-primary'><input type='hidden' value='1' name='submitted' /> 
 
-<p><input type='submit' value='Salvar' class='btn btn-primary'><input type='hidden' value='1' name='submitted' /> 
-
-</form> 
+		</form> 
+	
+	</div>
+</div>

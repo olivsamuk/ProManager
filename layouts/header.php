@@ -23,7 +23,7 @@ include("../check.php");
     <link href="../assets/stylesheets/bootstrap-responsive.css" media="all" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome.min.css">
     <link href="../assets/stylesheets/estilos.css" media="screen" rel="stylesheet" type="text/css">
-
+		<link rel="stylesheet" type="text/css" href="../assets/css/base-admin.css">
     <!-- Le fav and touch icons -->
 
     <link href="http://prodap.ap.gov.br/images/favicon.ico" rel="shortcut icon">

@@ -60,7 +60,7 @@ DROP TABLE IF EXISTS `demandas`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `demandas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `titulo` varchar(45) NOT NULL,
+  `titulo` varchar(255) NOT NULL,
   `desc` varchar(45) NOT NULL,
   `rac_id` int(11) NOT NULL,
   `projeto_id` int(11) NOT NULL,
@@ -68,7 +68,7 @@ CREATE TABLE `demandas` (
   `criado_em` datetime NOT NULL,
   `atualizado_em` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,4 +193,4 @@ CREATE TABLE `solicitantes` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-02 15:34:00
+-- Dump completed on 2013-10-02 16:31:03

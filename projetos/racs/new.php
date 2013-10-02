@@ -15,39 +15,48 @@ $projeto = mysql_fetch_array ( mysql_query("SELECT * FROM `projetos` WHERE `id` 
 	<li class="active">Novo Relatório</li>
 </ul>
 
-<h3>Cadastrar Relatório <small>Este relatório gerará demandas.</small></h3>
+<div class="widget">
+    
+  <div class="widget-header">
+    <i class="icon-th-list"></i>
+    <h3>Cadastrar Relatório <small>Este relatório gerará demandas.</small></h3>
+  </div> <!-- /widget-header -->
+  
+  <div class="widget-content">
 
-<? 
-$identificacao = date("Ymd");
-if (isset($_POST['submitted'])) { 
-foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
-$sql = "INSERT INTO `rac` (`cliente_id` , `solicitante_id` , `projeto_id` , `colaborador_id` , `motivo` , `etapa` , `criado_em` , `identificacao` ) VALUES(  '{$projeto['cliente_id']}' , '{$_POST['solicitante_id']}' , '{$id}' , '{$_POST['colaborador_id']}' , '{$_POST['motivo']}' , '{$_POST['etapa']}' , NOW() , '{$identificacao}' ) "; 
-mysql_query($sql) or die(mysql_error()); 
-echo "Registro efetuado com sucesso.<br />"; 
+		<? 
+		$identificacao = date("Ymd");
+		if (isset($_POST['submitted'])) { 
+		foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
+		$sql = "INSERT INTO `rac` (`cliente_id` , `solicitante_id` , `projeto_id` , `colaborador_id` , `motivo` , `etapa` , `criado_em` , `identificacao` ) VALUES(  '{$projeto['cliente_id']}' , '{$_POST['solicitante_id']}' , '{$id}' , '{$_POST['colaborador_id']}' , '{$_POST['motivo']}' , '{$_POST['etapa']}' , NOW() , '{$identificacao}' ) "; 
+		mysql_query($sql) or die(mysql_error()); 
+		echo "Registro efetuado com sucesso.<br />"; 
 
-$novorac = mysql_fetch_array (mysql_query("SELECT * from `rac` ORDER BY id DESC LIMIT 1"));
+		$novorac = mysql_fetch_array (mysql_query("SELECT * from `rac` ORDER BY id DESC LIMIT 1"));
 
-echo "<meta http-equiv='refresh' content='1; url=show.php?id={$novorac['id']}&id_={$projeto['id']}' />";
-//echo "<a href='index.php'>Voltar</a>"; 
-} 
-?>
+		echo "<meta http-equiv='refresh' content='1; url=show.php?id={$novorac['id']}&id_={$projeto['id']}' />";
+		//echo "<a href='index.php'>Voltar</a>"; 
+		} 
+		?>
 
-<form action='' method='POST'> 
+		<form action='' method='POST'> 
 
-<b>Motivo:</b><br /><textarea name='motivo'></textarea> <br/>
-<b>Etapa:</b><br /><input type='text' name='etapa'/> <br/>
-<b>Solicitante:</b><br />
-<select name='solicitante_id'>
-	<?php 
-		$QuerySolicitantes = mysql_query("SELECT * from solicitantes where cliente_id={$projeto['cliente_id']}");
-		while($solicitante = mysql_fetch_array($QuerySolicitantes)){
-	?>
-	<option value="<?php echo $solicitante['id']; ?>"><?php echo $solicitante['nome']; ?></option>
-	<?php } ?>
-</select><br />
-<input type='submit' value='Salvar' class='btn btn-primary' /><input type='hidden' value='1' name='submitted' /> 
+		<b>Motivo:</b><br /><textarea name='motivo'></textarea> <br/>
+		<b>Etapa:</b><br /><input type='text' name='etapa'/> <br/>
+		<b>Solicitante:</b><br />
+		<select name='solicitante_id'>
+			<?php 
+				$QuerySolicitantes = mysql_query("SELECT * from solicitantes where cliente_id={$projeto['cliente_id']}");
+				while($solicitante = mysql_fetch_array($QuerySolicitantes)){
+			?>
+			<option value="<?php echo $solicitante['id']; ?>"><?php echo $solicitante['nome']; ?></option>
+			<?php } ?>
+		</select><br />
+		<input type='submit' value='Salvar' class='btn btn-primary' /><input type='hidden' value='1' name='submitted' /> 
 
-</form> 
+		</form> 
+	</div>
+</div>
 
 
 <?php

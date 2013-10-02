@@ -23,7 +23,7 @@ include("../../check.php");
     <link href="../../assets/stylesheets/bootstrap-responsive.css" media="all" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css">
     <link href="../../assets/stylesheets/estilos.css" media="screen" rel="stylesheet" type="text/css">
-
+		<link rel="stylesheet" type="text/css" href="../../assets/css/base-admin.css">
     <!-- Le fav and touch icons -->
 
     <link href="http://prodap.ap.gov.br/images/favicon.ico" rel="shortcut icon">
@@ -69,16 +69,15 @@ include("../../check.php");
 				<div class="navbar">
 					<div class="navbar-inner">
 						<ul class="nav">
-							<li><a href="../instituicoes/index.php"><i class='icon-building'></i> Instituições</a></li>
+							<li><a href="../../instituicoes/index.php"><i class='icon-building'></i> Instituições</a></li>
 							<li class="divider-vertical"></li>
-							<li><a href="../clientes/index.php"><i class='icon-group'></i> Clientes</a></li>
+							<li><a href="../../clientes/index.php"><i class='icon-group'></i> Clientes</a></li>
 							<li class="divider-vertical"></li>
-							<li><a href="../projetos/index.php"><i class='icon-tags'></i> Projetos</a></li>	
+							<li><a href="../../projetos/index.php"><i class='icon-tags'></i> Projetos</a></li>	
 							<li class="divider-vertical"></li>							
-							<li><a href="../relatorios/"><i class='icon-bar-chart'></i> Relatórios</a></li>
+							<li><a href="../../relatorios/"><i class='icon-bar-chart'></i> Relatórios</a></li>
 						</ul>
 					</div>
 				</div>
 			</div>
 		</div>
-
