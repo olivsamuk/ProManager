@@ -50,7 +50,6 @@
 	</div> <!-- /widget-content -->	
 </div> <!-- /widget -->
 
-
 <a class="btn btn-primary" href="new.php">Novo Cliente</a>
 
 <br /><br />

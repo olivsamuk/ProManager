@@ -42,6 +42,7 @@ $projeto = mysql_fetch_array ( mysql_query("SELECT * FROM `projetos` WHERE `id` 
 		$result = mysql_query("SELECT * FROM `rac` where projeto_id = $id") or trigger_error(mysql_error()); 
 		while($row = mysql_fetch_array($result)){ 
 		foreach($row AS $key => $value) { $row[$key] = stripslashes($value); } 
+<<<<<<< HEAD
 		$status = $row['finalizado'];
 		echo "<tr>";  
 		if($status == 1){
