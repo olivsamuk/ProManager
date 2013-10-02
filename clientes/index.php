@@ -3,34 +3,55 @@
 	file_get_contents('../layouts/header.php');
 ?>
 
+<link rel="stylesheet" type="text/css" href="../assets/css/base-admin.css">
+
 <ul class="breadcrumb">
 	<li><a href="../index.php">Início</a> <span class="divider">|</span></li>
 	<li class="active">Clientes</li>
 </ul>
 
 
-<h3>Clientes</h3>
+<div class="widget widget-table action-table">
+		
+	<div class="widget-header">
+		<i class="icon-th-list"></i>
+		<h3>Clientes</h3>
+	</div> <!-- /widget-header -->
+	
+	<div class="widget-content">
+		
+		<table class="table table-striped table-bordered">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Descrição</th>
+					<th>Data de Criação</th>
+					<th class="td-actions"></th>
+				</tr>
+			</thead>
+			<tbody>
+			<?
+			include("../config.php");
+			$result = mysql_query("SELECT * FROM `clientes`") or trigger_error(mysql_error()); 
+			while($row = mysql_fetch_array($result)){ 
+			?>
+				<tr>
+					<td><b><a href="show.php?id=<?php echo $row['id']; ?>"><? echo $row['nome']; ?></a></b></td>
+					<td><?php echo $row['desc']; ?></td>
+					<td><?php echo $row['criado_em']; ?></td>
+					<td> 
+						<a class="btn btn-primary" title="Editar" href="edit.php?id=<? echo $row['id']; ?>"><i class='btn-icon-only icon-edit'></i></a>
+						<a class="btn btn-danger" title="Remover" href="delete.php?id=<? echo $row['id']; ?>"><i class='btn-icon-only icon-remove'></i></a>
+					</td>
+				</tr>
+				<?$counter++;}?>
+			</tbody>
+		</table>
+	</div> <!-- /widget-content -->	
+</div> <!-- /widget -->
 
-<? 
-include('../config.php'); 
-echo "<table class='table table-bordered table-hover'>"; 
-echo "<tr>"; 
-echo "<th>Nome</th>"; 
-echo "<th>Data de Criação</th>";
-echo "<th colspan=2>Ações</th>";
-echo "</tr>"; 
-$result = mysql_query("SELECT * FROM `clientes`") or trigger_error(mysql_error()); 
-while($row = mysql_fetch_array($result)){ 
-foreach($row AS $key => $value) { $row[$key] = stripslashes($value); } 
-echo "<tr>";  
-echo "<td><a href='show.php?id=" . $row['id'] . "'>" . nl2br( $row['nome']) . "</a></td>"; 
-echo "<td>" . nl2br( $row['criado_em']) . "</a></td>";   
-echo "<td><a href=edit.php?id={$row['id']}>Editar</a></td><td><a href=delete.php?id={$row['id']}>Remover</a></td> "; 
-echo "</tr>"; 
-} 
-echo "</table>"; 
-echo "<a href=new.php class='btn btn-primary'>Novo Cliente</a>"; 
-?>
+
+<a class="btn btn-primary" href="new.php">Novo Cliente</a>
 
 <br /><br />
 

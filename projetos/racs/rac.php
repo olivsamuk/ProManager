@@ -82,7 +82,9 @@ Centro de Gestão de Tecnologia da Informação
             <div class="row-fluid">
                <div class="span12" id="borda"><br />
 
-																<?
+																<?php 
+                                                                            echo $rac['diagnostico'];
+                                                                            
 																			$find_demandas = mysql_query("SELECT * from `demandas` where rac_id = $id");
 																			echo "<ul>";
 																			while($demanda = mysql_fetch_array($find_demandas)){ 
@@ -91,6 +93,8 @@ Centro de Gestão de Tecnologia da Informação
 																			<? echo $demanda['desc']; ?></li>
 																			<?}?>
 																			</ul>
+
+
 																<br />
                </div>  
         		</div>

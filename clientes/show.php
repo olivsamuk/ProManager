@@ -9,6 +9,8 @@
 	
 ?>
 
+<link rel="stylesheet" type="text/css" href="../assets/css/base-admin.css">
+
 <ul class="breadcrumb">
 	<li><a href="../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="index.php">Clientes</a> <span class="divider">|</span></li>
@@ -18,46 +20,65 @@
 
 <div class="row">
 	<div class="span4">
-		<h3><? echo $cliente['nome']; ?></h3>
-		<b>Descrição:</b>
-		<? echo $cliente['desc']; ?><br />
-		<b>Data de Criação:</b>
-		<? echo $cliente['criado_em']; ?>
-		<br /><br />
-		<a href="edit.php?id=<? echo $id; ?>" class="btn btn-primary">Editar</a>
+
+		<div class="widget">
+				
+			<div class="widget-header">
+				<i class="icon-th-list"></i>
+				<h3><? echo $cliente['nome']; ?></h3>
+			</div> <!-- /widget-header -->
+			
+			<div class="widget-content">
+				<b>Descrição:</b>
+				<? echo $cliente['desc']; ?><br />
+				<b>Data de Criação:</b>
+				<? echo $cliente['criado_em']; ?>
+			</div>
+		</div>
+		<a href="edit.php?id=<? echo $id; ?>" class="btn btn-primary">Editar Informações</a>
 	</div>
 
 	<div class="span8">
-		<h3>Solicitantes</h3>
 
-		<div id="txtHint">
-			<?
-			$result = mysql_query("SELECT * FROM solicitantes where cliente_id=$id ");
+		<div class="widget widget-table action-table">
+				
+			<div class="widget-header">
+				<i class="icon-th-list"></i>
+				<h3>Solicitantes</h3>
+			</div> <!-- /widget-header -->
+			
+			<div class="widget-content">
+		
 
-			echo "<table class='table table-bordered'>";
-			?>
-	
-			<tr>
-				<th>Nome</th>
-				<th>Cargo</th>
-				<th>Ações</th>				
-			<?
+				<div id="txtHint">
+					<?
+					$result = mysql_query("SELECT * FROM solicitantes where cliente_id=$id ");
 
-			while($row = mysql_fetch_array($result))
-				{
-				echo "<tr>";
-				echo "<td>" . $row['nome'] . "</td>";
-				echo "<td>" . $row['cargo'] . "</td>";
-				echo "<td><a href='solicitantes/edit.php?id=" . $row['id'] . "&id_=" . $id ."'>Editar</a></td>";
-				echo "<td><a href='solicitantes/delete.php?id=" . $row['id'] . "&id_=" . $id ."'>Remover</a></td>";
-				echo "</tr>";
-				}
-			echo "</table>";?>
+					echo "<table class='table table-bordered'>";
+					?>
+			
+					<tr>
+						<th>Nome</th>
+						<th>Cargo</th>
+						<th>Ações</th>
+					</tr>				
+					<?
+
+					while($row = mysql_fetch_array($result))
+						{
+						echo "<tr>";
+						echo "<td>" . $row['nome'] . "</td>";
+						echo "<td>" . $row['cargo'] . "</td>";
+						echo "<td><a href='solicitantes/edit.php?id=" . $row['id'] . "&id_=" . $id ."'>Editar</a></td>";
+						echo "<td><a href='solicitantes/delete.php?id=" . $row['id'] . "&id_=" . $id ."'>Remover</a></td>";
+						echo "</tr>";
+						}
+					echo "</table>";?>
+				</div>
+			</div>
 		</div>
-
 		<a href="solicitantes/new.php?id=<? echo $id; ?>" class="btn btn-primary">Novo Solicitante</a>
 	</div>
-
 </div>
 
 <?php

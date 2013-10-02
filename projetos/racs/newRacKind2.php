@@ -15,19 +15,19 @@ $projeto = mysql_fetch_array ( mysql_query("SELECT * FROM `projetos` WHERE `id` 
 	<li class="active">Novo Relatório</li>
 </ul>
 
-<h3>Cadastrar Relatório <small>Este relatório gerará demandas.</small></h3>
+<h3>Cadastrar Relatório <small>Este relatório não gerará demandas.</small></h3>
 
 <? 
 $identificacao = date("Ymd");
 if (isset($_POST['submitted'])) { 
 foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
-$sql = "INSERT INTO `rac` (`cliente_id` , `solicitante_id` , `projeto_id` , `colaborador_id` , `motivo` , `etapa` , `criado_em` , `identificacao` ) VALUES(  '{$projeto['cliente_id']}' , '{$_POST['solicitante_id']}' , '{$id}' , '{$_POST['colaborador_id']}' , '{$_POST['motivo']}' , '{$_POST['etapa']}' , NOW() , '{$identificacao}' ) "; 
+$sql = "INSERT INTO `rac` (`cliente_id` , `solicitante_id` , `projeto_id` , `colaborador_id` , `motivo` , `etapa` , `criado_em` , `identificacao` , `diagnostico` , `tipo` ) VALUES(  '{$projeto['cliente_id']}' , '{$_POST['solicitante_id']}' , '{$id}' , '{$_POST['colaborador_id']}' , '{$_POST['motivo']}' , '{$_POST['etapa']}' , NOW() , '{$identificacao}' , '{$_POST['diagnostico']}' , '1' ) "; 
 mysql_query($sql) or die(mysql_error()); 
 echo "Registro efetuado com sucesso.<br />"; 
 
 $novorac = mysql_fetch_array (mysql_query("SELECT * from `rac` ORDER BY id DESC LIMIT 1"));
 
-echo "<meta http-equiv='refresh' content='1; url=show.php?id={$novorac['id']}&id_={$projeto['id']}' />";
+echo "<meta http-equiv='refresh' content='1; url=showRacKind2.php?id={$novorac['id']}&id_={$projeto['id']}' />";
 //echo "<a href='index.php'>Voltar</a>"; 
 } 
 ?>
@@ -45,6 +45,7 @@ echo "<meta http-equiv='refresh' content='1; url=show.php?id={$novorac['id']}&id
 	<option value="<?php echo $solicitante['id']; ?>"><?php echo $solicitante['nome']; ?></option>
 	<?php } ?>
 </select><br />
+<b>Diagnóstico:</b><br /><textarea name='diagnostico'></textarea> <br/>
 <input type='submit' value='Salvar' class='btn btn-primary' /><input type='hidden' value='1' name='submitted' /> 
 
 </form> 

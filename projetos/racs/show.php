@@ -13,6 +13,11 @@ $cliente_id = $rac['cliente_id'];
 $cliente = mysql_fetch_array ( mysql_query("SELECT * FROM `clientes` WHERE `id` = '$cliente_id'")); 
 $solicitante_id = $rac['solicitante_id'];
 $solicitante = mysql_fetch_array ( mysql_query("SELECT * FROM `solicitantes` WHERE `id` = '$solicitante_id'")); 
+
+if ($rac['tipo'] == 1) {
+	echo "<meta http-equiv='refresh' content='0; url=showRacKind2.php?id={$rac['id']}&id_={$projeto['id']}' />";
+}
+
 ?>
 <script language="javascript" src="ajax.js" type="text/javascript"></script>
 
