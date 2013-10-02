@@ -98,6 +98,8 @@
 
 </div> <!-- /widget -->
 
+<a class="btn btn-primary" href="new.php">Novo Projeto</a>
+
 <?php
 	include('../layouts/footer.php');
 	file_get_contents('../layouts/footer.php');
