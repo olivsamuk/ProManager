@@ -41,8 +41,8 @@ Há também a possibilidade de informar algum problema que ocorreu no desenvolvi
 Na área do acompanhamento de demandas, clique em "Informar Problema". Um modal será exibido com um pequeno formulário.
 Escolha a demanda que apresenta o problema, informe um titulo e detalhes sobre o problema em questão.
 Na demanda com problema, uma etiqueta vermelha indicará o estado deste problema.
-<br />
+<br /><br />
 Esta solução foi desenvolvida em PHP e utiliza MySQL como banco de dados.
 A área de demandas utiliza chamadas em Ajax para o deslocamentos dos posts para outras áreas.
-<br />
+<br /><br />
 Dúvidas? Entre em contato com samuelsilva@prodap.ap.gov.br
