@@ -7,7 +7,7 @@
 include('../../config.php'); 
 $id = (int) $_GET['id']; 
 $id_ = (int) $_GET['id_'];
-mysql_query("DELETE FROM `rac` WHERE `id` = '$id' ") ; 
+mysql_query("DELETE rac.*, demandas.* FROM rac, demandas WHERE rac.id = '$id' AND demandas.rac_id = '$id' ") ; 
 
 echo (mysql_affected_rows()) ? "<h3>Registro Removido!</h3><br /> " : "Nothing deleted.<br /> "; 
 ?> 
@@ -17,4 +17,18 @@ echo (mysql_affected_rows()) ? "<h3>Registro Removido!</h3><br /> " : "Nothing d
 <?php
 	include('../../layouts/footer_.php');
 	file_get_contents('../../layouts/footer_.php');
+
+
+
+
+
+
+
+
+
+
+	$sql = "DELETE produtos.*, fotos.*
+        FROM produtos, fotos
+        WHERE produtos.id_produto = '".$ID."'
+        AND fotos.id_produto = '".$ID."'";
 ?>
