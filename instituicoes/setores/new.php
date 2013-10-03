@@ -14,24 +14,38 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 	<li class="active">Novo Setor</li>
 </ul>
 
-<h3>Novo Setor</h3>
+<div class="row">
+	<div class="span12">
 
-<? 
-if (isset($_POST['submitted'])) { 
-foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
-$sql = "INSERT INTO `setores` ( `nome` ,  `desc` ,  `criado_em` , `instituicao_id`  ) VALUES(  '{$_POST['nome']}' ,  '{$_POST['desc']}' ,  NOW() , '{$_POST['instituicao_id']}'  ) "; 
-mysql_query($sql) or die(mysql_error()); 
-echo "Registro efetuado com sucesso.<br />"; 
-echo "<a href='../show.php?id=$id'>Voltar</a>"; 
-}
-?>
+		<div class="widget">
+			
+			<div class="widget-header">
+				<i class="icon-th-list"></i>
+				<h3>Novo Setor</h3>
+			</div> <!-- /widget-header -->
+		
+			<div class="widget-content">
 
-<form action='' id='InfroText' method='POST'> 
-<input type='hidden' name='instituicao_id' value='<? echo $id; ?>' /> 
-<p><b>Nome:</b><br /><input type='text' id='nome' name='nome'/> 
-<p><b>Descrição:</b><br /><input type='text' name='desc'/> 
-<p><input type='submit' value='Salvar' class='btn btn-primary' /><input type='hidden' value='1' name='submitted' /> 
-</form> 
+				<? 
+				if (isset($_POST['submitted'])) { 
+				foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
+				$sql = "INSERT INTO `setores` ( `nome` ,  `desc` ,  `criado_em` , `instituicao_id`  ) VALUES(  '{$_POST['nome']}' ,  '{$_POST['desc']}' ,  NOW() , '{$_POST['instituicao_id']}'  ) "; 
+				mysql_query($sql) or die(mysql_error()); 
+				echo "Registro efetuado com sucesso.<br />"; 
+				echo "<a href='../show.php?id=$id'>Voltar</a>"; 
+				}
+				?>
+
+				<form action='' id='InfroText' method='POST'> 
+				<input type='hidden' name='instituicao_id' value='<? echo $id; ?>' /> 
+				<b>Nome:</b><br /><input type='text' id='nome' name='nome'/> <br />
+				<b>Descrição:</b><br /><input type='text' name='desc'/> <br />
+				<input type='submit' value='Salvar' class='btn btn-primary' /><input type='hidden' value='1' name='submitted' /> 
+				</form> 
+			</div>
+		</div>
+	</div>
+</div>
 
 <?php
 	include('../../layouts/footer_.php');

@@ -38,7 +38,7 @@
 				<b>Titulo:</b><br /><input type='text' name='titulo' value='<?= stripslashes($row['titulo']) ?>' /> <br />
 				<b>Desc:</b><br /><textarea name='desc'><?= stripslashes($row['desc']) ?></textarea> <br />
 				
-				<input type='submit' value='Edit Row' /><input type='hidden' value='1' name='submitted' /> <br />
+				<input type='submit' class='btn btn-primary' value='Editar' /><input type='hidden' value='1' name='submitted' /> <br />
 				</form> 
 				<? } ?> 
 	</div>

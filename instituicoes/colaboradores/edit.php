@@ -16,41 +16,54 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 	<li class="active">Editar Colaborador</li>
 </ul>
 
+<div class="row">
+	<div class="span12">
 
-<h3>Editar Colaborador</h3>
-<?
-if (isset($_POST['submitted'])) { 
-foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
-$sql = "UPDATE `colaboradores` SET  `nome` =  '{$_POST['nome']}' ,  `setor_id` =  '{$_POST['setor_id']}' ,  `email` =  '{$_POST['email']}' ,  `permissao` =  '{$_POST['permissao']}' WHERE `id` = '$id' "; 
-mysql_query($sql) or die(mysql_error()); 
-echo (mysql_affected_rows()) ? "Edição Cncluída.<br />" : "Nothing changed. <br />"; 
-echo "<a href='../show.php?id=$id_'>Voltar</a><br />"; 
-} 
-$row = mysql_fetch_array ( mysql_query("SELECT * FROM `colaboradores` WHERE `id` = '$id' ")); 
-?>
+	<div class="widget">
+		
+		<div class="widget-header">
+			<i class="icon-th-list"></i>
+			<h3>Editar Colaborador</h3>
+		</div> <!-- /widget-header -->
+	
+		<div class="widget-content">
+
+			<?
+			if (isset($_POST['submitted'])) { 
+			foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
+			$sql = "UPDATE `colaboradores` SET  `nome` =  '{$_POST['nome']}' ,  `setor_id` =  '{$_POST['setor_id']}' ,  `email` =  '{$_POST['email']}' ,  `permissao` =  '{$_POST['permissao']}' WHERE `id` = '$id' "; 
+			mysql_query($sql) or die(mysql_error()); 
+			echo (mysql_affected_rows()) ? "Edição Cncluída.<br />" : "Nothing changed. <br />"; 
+			echo "<a href='../show.php?id=$id_'>Voltar</a><br />"; 
+			} 
+			$row = mysql_fetch_array ( mysql_query("SELECT * FROM `colaboradores` WHERE `id` = '$id' ")); 
+			?>
 
 
-<form action='' method='POST'> 
-<p><b>Nome:</b><br /><input type='text' name='nome' value='<?= stripslashes($row['nome']) ?>' /> 
-<p><b>Setor:</b><br />
-<select name='setor_id'>
-<option>--</option>
-<?
-$find_setores = mysql_query("SELECT * FROM `setores`") or trigger_error(mysql_error()); 
-while($setor = mysql_fetch_array($find_setores)){
-?>
-<option value="<? echo $setor['id']; ?>"><? echo $setor['nome']; ?></option>
-<?}?>
-</select>
-<p><b>Email:</b><br /><input type='text' name='email' value='<?= stripslashes($row['email']) ?>' /> 
-<p><b>Permissão:</b><br />
-<select name='permissao'>
-	<option>--</option>
-	<option value=0>Colaborador</option>
-	<option value=1>Administrador</option>
-</select><br />
-<p><input type='submit' value='Editar' class='btn btn-primary' /><input type='hidden' value='1' name='submitted' /> 
-</form> 
+			<form action='' method='POST'> 
+			<b>Nome:</b><br /><input type='text' name='nome' value='<?= stripslashes($row['nome']) ?>' /> <br />
+			<b>Setor:</b><br />
+			<select name='setor_id'>
+			<option>--</option>
+			<?
+			$find_setores = mysql_query("SELECT * FROM `setores`") or trigger_error(mysql_error()); 
+			while($setor = mysql_fetch_array($find_setores)){
+			?>
+			<option value="<? echo $setor['id']; ?>"><? echo $setor['nome']; ?></option>
+			<?}?>
+			</select><br />
+			<b>Email:</b><br /><input type='text' name='email' value='<?= stripslashes($row['email']) ?>' /> <br />
+			<b>Permissão:</b><br />
+			<select name='permissao'>
+				<option>--</option>
+				<option value=0>Colaborador</option>
+				<option value=1>Administrador</option>
+			</select><br />
+			<input type='submit' value='Editar' class='btn btn-primary' /><input type='hidden' value='1' name='submitted' /> 
+			</form> 
+		</div>
+	</div>
+</div>
 
 
 <?

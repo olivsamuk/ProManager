@@ -40,6 +40,10 @@ $projeto = mysql_fetch_array ( mysql_query("SELECT * FROM `projetos` WHERE `id` 
 		echo "<td><b>Ações</b></td>";
 		echo "</tr>"; 
 		$result = mysql_query("SELECT * FROM `rac` where projeto_id = $id") or trigger_error(mysql_error()); 
+		$qtd = mysql_num_rows($result);
+		if ($qtd == 0) {
+			echo "<meta http-equiv='refresh' content='0; url=../index.php' />";
+		}
 		while($row = mysql_fetch_array($result)){ 
 		foreach($row AS $key => $value) { $row[$key] = stripslashes($value); } 
 		$status = $row['finalizado'];

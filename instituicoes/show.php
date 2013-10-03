@@ -84,7 +84,7 @@ xmlhttp.send();
 					<tbody>
 					<?
 					$counter=0;
-					$find_setores = mysql_query("SELECT * FROM `setores`") or trigger_error(mysql_error()); 
+					$find_setores = mysql_query("SELECT * FROM `setores` where instituicao_id = $id") or trigger_error(mysql_error()); 
 					while($setor = mysql_fetch_array($find_setores)){
 					?>
 						<tr>
@@ -121,7 +121,7 @@ xmlhttp.send();
 				<select name="users" onchange="showUser(this.value)">
 				<option value="">Todos</option>
 				<? 
-				$find_setores = mysql_query("SELECT * FROM `setores`") or trigger_error(mysql_error()); 			
+				$find_setores = mysql_query("SELECT * FROM `setores` where instituicao_id = $id") or trigger_error(mysql_error()); 			
 				while($setores = mysql_fetch_array($find_setores)){ ?>
 				<option value="<? echo $setores['id']; ?>"><? echo $setores['nome']; ?></option>
 				<?}?>		
@@ -154,6 +154,7 @@ xmlhttp.send();
 				</div>
 			</div>
 		</div>
+		<a href="colaboradores/new.php?id=<?php echo $id; ?>" class="btn btn-primary">Novo Colaborador</a><br /><br /><br />
 	</div>
 
 

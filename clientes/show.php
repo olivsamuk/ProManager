@@ -69,8 +69,11 @@
 						echo "<tr>";
 						echo "<td>" . $row['nome'] . "</td>";
 						echo "<td>" . $row['cargo'] . "</td>";
-						echo "<td><a href='solicitantes/edit.php?id=" . $row['id'] . "&id_=" . $id ."'>Editar</a></td>";
-						echo "<td><a href='solicitantes/delete.php?id=" . $row['id'] . "&id_=" . $id ."'>Remover</a></td>";
+						
+						echo "<td>
+							<a class='btn btn-small btn-primary' title='Editar' href=solicitantes/edit.php?id={$row['id']}&id_={$id}><i class='btn-icon-only icon-edit'></i></a>
+							<a class='btn btn-small btn-danger' title='Remover' href=solicitantes/delete.php?id={$row['id']}&id_=$id><i class='btn-icon-only icon-remove'></i></a>
+						</td>";
 						echo "</tr>";
 						}
 					echo "</table>";?>
@@ -86,5 +89,3 @@
 	file_get_contents('../layouts/footer.php');
 	
 ?>
-
-

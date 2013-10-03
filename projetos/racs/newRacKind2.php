@@ -40,7 +40,8 @@ $projeto = mysql_fetch_array ( mysql_query("SELECT * FROM `projetos` WHERE `id` 
 		?>
 
 		<form action='' method='POST'> 
-
+		<input type="hidden" name="tipo" value="1" />
+		
 		<b>Motivo:</b><br /><textarea name='motivo'></textarea> <br/>
 		<b>Etapa:</b><br /><input type='text' name='etapa'/> <br/>
 		<b>Solicitante:</b><br />

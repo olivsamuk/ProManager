@@ -18,9 +18,8 @@ $solicitante = mysql_fetch_array ( mysql_query("SELECT * FROM `solicitantes` WHE
 <ul class="breadcrumb">
 	<li><a href="../../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="../index.php">Projetos</a> <span class="divider">|</span></li>
-	<li><a href=""><? echo $projeto['titulo']; ?></a> <span class="divider">|</span></li>
-	<li><a href="">RAC-<? echo $rac['identificacao']; ?></a> <span class="divider">|</span></li>
-	<li class="active">Informações do Relatório - Demandas</li>
+	<li><a href="index.php?id=<?php echo $id_; ?>">RAC's <? echo $projeto['titulo']; ?></a> <span class="divider">|</span></li>
+	<li class="active">RAC-<? echo $rac['identificacao']; ?> </li>
 </ul>
 
 <div class="row">
