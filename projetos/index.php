@@ -96,7 +96,7 @@
                       </button>
                       <ul class='dropdown-menu'>
                         <li><a href=edit.php?id={$row['id']}><i class='icon-edit'></i> Editar</a></li>
-                        <li><a href=delete.php?id={$row['id']}><i class='icon-remove'></i>Remover</a></li>
+                        <li><a href=delete.php?id={$row['id']}><i class='icon-remove'></i> Remover</a></li>
                         <li><a href='#myModal{$counter}' data-toggle='modal'><i class='icon-file-alt'></i> Criar novo Relatório</a></li>
                       </ul>
                     </div>
