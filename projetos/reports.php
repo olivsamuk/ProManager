@@ -19,7 +19,15 @@
 
 <div class="row">
 	<div class="span6">
-		<canvas id="pie" width="400" height="400"></canvas>
+		<div class="widget">
+			<div class="widget-header">
+				<i class="icon-th-list"></i>
+				<h3>Gráfico</h3>
+			</div> <!-- /widget-header -->
+			<div class="widget-content">
+				<canvas id="pie" width="400" height="400"></canvas>
+			</div>
+		</div>
 	</div>
 	<div class="span6">
 		<div class="widget">
