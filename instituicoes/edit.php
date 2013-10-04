@@ -1,6 +1,12 @@
 <?php
 	include('../layouts/header.php');
 	file_get_contents('../layouts/header.php');
+
+	if (!$_SESSION['permissao'] == 1) {
+		echo "<div class='alert'><strong>Atenção!</strong> Você não tem as permissões necessárias para acessar esta página.</div>";
+		echo "<meta http-equiv='refresh' content='2; url=../projetos/index.php' />";
+	}else{
+
 ?>
 
 <ul class="breadcrumb">
@@ -53,3 +59,4 @@
 	include('../layouts/footer.php');
 	file_get_contents('../layouts/footer.php');
 ?>
+<?php } ?>

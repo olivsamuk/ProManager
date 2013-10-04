@@ -1,6 +1,11 @@
 <? 
 include('../../layouts/header_.php');
 file_get_contents('../../layouts/header_.php');
+
+  if (!$_SESSION['permissao'] == 1) {
+    echo "<div class='alert'><strong>Atenção!</strong> Você não tem as permissões necessárias para acessar esta página.</div>";
+    echo "<meta http-equiv='refresh' content='2; url=../../projetos/index.php' />";
+  }else{
 ?> 
 
 <script>
@@ -37,3 +42,4 @@ echo (mysql_affected_rows()) ? "Dados removidos com sucesso!<br /> " : "Erro.<br
 	include('../../layouts/footer_.php');
 	file_get_contents('../../layouts/footer_.php');
 ?>
+<?php } ?>

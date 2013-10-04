@@ -69,8 +69,10 @@ include("../check.php");
 				<div class="navbar">
 					<div class="navbar-inner">
 						<ul class="nav">
+							<?php if ($SESSION['permissao'] == 1) { ?>
 							<li><a href="../instituicoes/index.php"><i class='icon-building'></i> Instituições</a></li>
 							<li class="divider-vertical"></li>
+							<?php } ?>
 							<li><a href="../clientes/index.php"><i class='icon-group'></i> Clientes</a></li>
 							<li class="divider-vertical"></li>
 							<li><a href="../projetos/index.php"><i class='icon-tags'></i> Projetos</a></li>	

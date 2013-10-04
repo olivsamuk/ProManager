@@ -6,6 +6,12 @@
 
 	$id = (int) $_GET['id']; 
 	$instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHERE `id` = '$id'")); 
+
+	if (!$_SESSION['permissao'] == 1) {
+		echo "<div class='alert'><strong>Atenção!</strong> Você não tem as permissões necessárias para acessar esta página.</div>";
+		echo "<meta http-equiv='refresh' content='2; url=../projetos/index.php' />";
+	}else{
+
 	
 ?>
 
@@ -166,4 +172,4 @@ xmlhttp.send();
 	
 ?>
 
-
+<?php } ?>
