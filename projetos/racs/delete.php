@@ -27,13 +27,15 @@ function abrirmodal()
   <div class="modal-body">
     <?php
     $FindRac = mysql_fetch_array( mysql_query("SELECT * from rac where id = $id"));
+    $FindDemand = mysql_query("SELECT * from demandas where rac_id = $id");
+    $qtd = mysql_num_rows($FindDemand);
 
-		if ($FindRac[tipo] == 1) {
+		if ($qtd == 0) {
 			mysql_query("DELETE FROM rac WHERE id = '$id'") ; 
-			echo (mysql_affected_rows()) ? "O RAC for removido com sucesso!<br /> " : "Nothing deleted.<br /> "; 
+			echo (mysql_affected_rows()) ? "O RAC for removido com sucesso!<br /> " : "Erro 1.<br /> "; 
 		}else{
 			mysql_query("DELETE rac.*, demandas.* FROM rac, demandas WHERE rac.id = '$id' AND demandas.rac_id = '$id' ") ; 
-			echo (mysql_affected_rows()) ? "O RAC e suas demandas foram removidas com sucesso!<br /> " : "Nothing deleted.<br /> "; 
+			echo (mysql_affected_rows()) ? "O RAC e suas demandas foram removidas com sucesso!<br /> " : "Erro 2.<br /> "; 
 		} 
 		?>
   </div>
