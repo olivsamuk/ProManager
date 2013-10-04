@@ -6,6 +6,7 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     <script src="../../assets/javascripts/jquery.js"></script>
+    <script src="../../assets/javascripts/bootstrap.min.js"></script>
     <script src="../../assets/javascripts/bootstrap-transition.js"></script>
     <script src="../../assets/javascripts/bootstrap-alert.js"></script>
     <script src="../../assets/javascripts/bootstrap-modal.js"></script>
