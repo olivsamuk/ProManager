@@ -1,4 +1,4 @@
-<?
+<?php
 // Verificador de sessão
 include("../check.php");
 ?>
