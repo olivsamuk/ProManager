@@ -25,9 +25,9 @@ while($demanda = mysql_fetch_array($find_demandas)){
 ?>
 
 <tr>
-	<td><? echo $demanda['titulo']; ?></td>
-	<td><? echo $demanda['desc']; ?></td>
-	<td><a href="delete_demanda.php?id=<? echo $demanda['id']; ?>&id_rac=<? echo $rac_id_; ?>&id_projeto=<? echo $projeto_id_ ?>">Remover</a></td>
+	<td><?php echo $demanda['titulo']; ?></td>
+	<td><?php echo $demanda['desc']; ?></td>
+	<td><a href="delete_demanda.php?id=<?php echo $demanda['id']; ?>&id_rac=<?php echo $rac_id_; ?>&id_projeto=<?php echo $projeto_id_ ?>">Remover</a></td>
 </tr>
 
-<?}?>
+<?php } ?>

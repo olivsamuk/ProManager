@@ -11,7 +11,7 @@ $projeto = mysql_fetch_array ( mysql_query("SELECT * FROM `projetos` WHERE `id` 
 <ul class="breadcrumb">
 	<li><a href="../../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="../index.php">Projetos</a> <span class="divider">|</span></li>
-	<li><a href=""><? echo $projeto['titulo']; ?></a> <span class="divider">|</span></li>
+	<li><a href=""><?php echo $projeto['titulo']; ?></a> <span class="divider">|</span></li>
 	<li class="active">Novo Relatório</li>
 </ul>
 
@@ -24,7 +24,7 @@ $projeto = mysql_fetch_array ( mysql_query("SELECT * FROM `projetos` WHERE `id` 
   
   <div class="widget-content">
 
-		<? 
+		<?php 
 		$identificacao = date("Ymd");
 		if (isset($_POST['submitted'])) { 
 		foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 

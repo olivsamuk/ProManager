@@ -1,4 +1,4 @@
-<?
+<?php
 include('../../layouts/header_.php');
 file_get_contents('../../layouts/header_.php');
 
@@ -17,7 +17,7 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 <ul class="breadcrumb">
 	<li><a href="../../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="../index.php">Instituições</a> <span class="divider">|</span></li>
-	<li><a href="../show.php?id=<? echo $id_; ?>"><? echo $instituicao['nome']; ?></a> <span class="divider">|</span></li>
+	<li><a href="../show.php?id=<?php echo $id_; ?>"><?php echo $instituicao['nome']; ?></a> <span class="divider">|</span></li>
 	<li class="active">Editar Colaborador</li>
 </ul>
 
@@ -33,7 +33,7 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 	
 		<div class="widget-content">
 
-			<?
+			<?php
 			if (isset($_POST['submitted'])) { 
 			foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
 			$sql = "UPDATE `colaboradores` SET  `nome` =  '{$_POST['nome']}' ,  `setor_id` =  '{$_POST['setor_id']}' ,  `email` =  '{$_POST['email']}' ,  `permissao` =  '{$_POST['permissao']}' WHERE `id` = '$id' "; 
@@ -50,14 +50,14 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 			<b>Setor:</b><br />
 			<select name='setor_id'>
 			<option>--</option>
-			<?
+			<?php
 			$find_setores = mysql_query("SELECT * FROM `setores`") or trigger_error(mysql_error()); 
 			while($setor = mysql_fetch_array($find_setores)){
 			?>
-			<option value="<? echo $setor['id']; ?>"><? echo $setor['nome']; ?></option>
+			<option value="<?php echo $setor['id']; ?>"><?php echo $setor['nome']; ?></option>
 			<?}?>
 			</select><br />
-			<b>Email:</b><br /><input type='text' name='email' value='<?= stripslashes($row['email']) ?>' /> <br />
+			<b>Email:</b><br /><input type='text' name='email' value='<?php stripslashes($row['email']) ?>' /> <br />
 			<b>Permissão:</b><br />
 			<select name='permissao'>
 				<option>--</option>
@@ -71,7 +71,7 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 </div>
 
 
-<?
+<?php
 	include('../../layouts/footer_.php');
 	file_get_contents('../../layouts/footer_.php');
 ?>

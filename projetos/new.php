@@ -37,7 +37,7 @@ xmlhttp.send();
 	<li class="active">Novo Projeto</li>
 </ul>
 
-<? 
+<?php 
 include('../config.php'); 
 if (isset($_POST['submitted'])) { 
 foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
@@ -59,7 +59,7 @@ echo "<meta http-equiv='refresh' content='0; url=index.php' />";
       
       <div class="widget-content">
         <form action='' method='POST'> 
-        <input type='hidden' name='colaborador_id' value='<? echo $_SESSION['id_usuario']; ?>'>
+        <input type='hidden' name='colaborador_id' value='<?php echo $_SESSION['id_usuario']; ?>'>
 
         <b>Titulo:</b><br /><input type='text' name='titulo'/> <br/>
         <b>Descrição:</b><br /><textarea name='desc'/></textarea><br />
@@ -68,13 +68,13 @@ echo "<meta http-equiv='refresh' content='0; url=index.php' />";
         <select name='cliente_id' onchange="showUser(this.value)">
         <option>--</option>
 
-        <?
+        <?php
         $find_clientes = mysql_query("SELECT * FROM `clientes`") or trigger_error(mysql_error()); 
         while($cliente = mysql_fetch_array($find_clientes)){ ?>
 
-        <option value="<? echo $cliente['id'] ?>"><? echo $cliente['nome'] ?></option>
+        <option value="<?php echo $cliente['id'] ?>"><?php echo $cliente['nome'] ?></option>
 
-        <?}?>
+        <?php } ?>
         </select><br />
         <div id="txtHint"></div>
 

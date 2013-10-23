@@ -16,7 +16,7 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 <ul class="breadcrumb">
 	<li><a href="../../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="../index.php">Instituições</a> <span class="divider">|</span></li>
-	<li><a href="../show.php?id=<? echo $id; ?>"><? echo $instituicao['nome']; ?></a> <span class="divider">|</span></li>
+	<li><a href="../show.php?id=<?php echo $id; ?>"><?php echo $instituicao['nome']; ?></a> <span class="divider">|</span></li>
 	<li class="active">Novo Setor</li>
 </ul>
 
@@ -32,7 +32,7 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 		
 			<div class="widget-content">
 
-				<? 
+				<?php 
 				if (isset($_POST['submitted'])) { 
 				foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
 				$sql = "INSERT INTO `setores` ( `nome` ,  `desc` ,  `criado_em` , `instituicao_id`  ) VALUES(  '{$_POST['nome']}' ,  '{$_POST['desc']}' ,  NOW() , '{$_POST['instituicao_id']}'  ) "; 
@@ -43,7 +43,7 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 				?>
 
 				<form action='' id='InfroText' method='POST'> 
-				<input type='hidden' name='instituicao_id' value='<? echo $id; ?>' /> 
+				<input type='hidden' name='instituicao_id' value='<?php echo $id; ?>' /> 
 				<b>Nome:</b><br /><input type='text' id='nome' name='nome'/> <br />
 				<b>Descrição:</b><br /><input type='text' name='desc'/> <br />
 				<input type='submit' value='Salvar' class='btn btn-primary' /><input type='hidden' value='1' name='submitted' /> 

@@ -12,7 +12,7 @@ $projeto = mysql_fetch_array ( mysql_query("SELECT * FROM `projetos` WHERE `id` 
 <ul class="breadcrumb">
 	<li><a href="../../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="../index.php">Projetos</a> <span class="divider">|</span></li>
-	<li><a href=""><? echo $projeto['titulo']; ?></a> <span class="divider">|</span></li>
+	<li><a href=""><?php echo $projeto['titulo']; ?></a> <span class="divider">|</span></li>
 	<li class="active">Relatórios de Atendimento</li>
 </ul>
 
@@ -26,7 +26,7 @@ $projeto = mysql_fetch_array ( mysql_query("SELECT * FROM `projetos` WHERE `id` 
 	
 	<div class="widget-content">
 
-		<? 
+		<?php 
 		echo "<table class='table table-bordered table-hover'>"; 
 		echo "<tr>"; 
 		echo "<td><b>Identificação</b></td>"; 

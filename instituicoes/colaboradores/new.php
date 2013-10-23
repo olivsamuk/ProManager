@@ -16,7 +16,7 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 <ul class="breadcrumb">
 	<li><a href="../../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="../index.php">Instituições</a> <span class="divider">|</span></li>
-	<li><a href="../show.php?id=<? echo $id; ?>"><? echo $instituicao['nome']; ?></a> <span class="divider">|</span></li>
+	<li><a href="../show.php?id=<?php echo $id; ?>"><?php echo $instituicao['nome']; ?></a> <span class="divider">|</span></li>
 	<li class="active">Novo Colaborador</li>
 </ul>
 
@@ -34,7 +34,7 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 
 
 
-			<? 
+			<?php 
 
 			$senhapura = $_POST['senha'];
 			$cript_senha = md5($senhapura);
@@ -53,12 +53,12 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 			<b>Setor:</b><br />
 			<select name='setor_id'>
 			<option>--</option>
-			<?
+			<?php
 			$find_setores = mysql_query("SELECT * FROM `setores` where instituicao_id = $id") or trigger_error(mysql_error()); 
 			while($setor = mysql_fetch_array($find_setores)){
 			?>
-			<option value="<? echo $setor['id']; ?>"><? echo $setor['nome']; ?></option>
-			<?}?>
+			<option value="<?php echo $setor['id']; ?>"><?php echo $setor['nome']; ?></option>
+			<?php } ?>
 			</select><br />
 			<b>Email:</b><br /><input type='text' name='email'/><br /> 
 			<b>Senha:</b><br /><input type='password' name='senha'/> <br />

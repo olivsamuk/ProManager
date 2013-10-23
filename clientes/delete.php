@@ -1,4 +1,4 @@
-<? 
+<?php 
 include('../layouts/header.php');
 file_get_contents('../layouts/header.php');
 ?> 
@@ -20,7 +20,7 @@ function abrirmodal()
   </div>
   <div class="modal-body">
 
-<? 
+<?php 
 include('../config.php'); 
 $id = (int) $_GET['id']; 
 mysql_query("DELETE FROM `clientes` WHERE `id` = '$id' ") ; 

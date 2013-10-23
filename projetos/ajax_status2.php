@@ -32,13 +32,13 @@ $resultado = $counter2%2;
 	</div>
 </div>
 <div class="row-fluid">
-<?}else{?>
+<?php }else{ ?>
 	<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
 		<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
-			<? echo $registro2['titulo']; ?>
+			<?php echo $registro2['titulo']; ?>
 			<br />
 			<small class='desc'><? echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
-			<?
+			<?php
 			$find_problemas_i = mysql_query("SELECT * from `problemas` where demanda_id = {$registro2['id']}");
 			while($problema = mysql_fetch_array($find_problemas_i)){			
 				echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
@@ -46,9 +46,9 @@ $resultado = $counter2%2;
 			?>
 		</div>
 	</div>
-<?}?>
+<?php } ?>
 
-<?$counter2++;}?>
+<?php $counter2++;} ?>
 
 	<div class='span6 prepost novademanda' id='2' ondrop='drop(event)' ondragover='allowDrop(event)'>Solte demandas aqui!</div>
 

@@ -1,4 +1,4 @@
-<?
+<?php
 include('../../layouts/header_.php');
 file_get_contents('../../layouts/header_.php');
 
@@ -17,7 +17,7 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 <ul class="breadcrumb">
 	<li><a href="../../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="../index.php">Instituições</a> <span class="divider">|</span></li>
-	<li><a href="../show.php?id=<? echo $id_; ?>"><? echo $instituicao['nome']; ?></a> <span class="divider">|</span></li>
+	<li><a href="../show.php?id=<?php echo $id_; ?>"><?php echo $instituicao['nome']; ?></a> <span class="divider">|</span></li>
 	<li class="active">Editar Setor</li>
 </ul>
 
@@ -34,7 +34,7 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 		<div class="widget-content">
 
 			<h3>Editar Setor</h3>
-			<?
+			<?php
 			if (isset($_POST['submitted'])) { 
 			foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
 			$sql = "UPDATE `setores` SET  `nome` =  '{$_POST['nome']}' ,  `desc` =  '{$_POST['desc']}' ,  `criado_em` =  '{$_POST['criado_em']}'   WHERE `id` = '$id' "; 
@@ -56,7 +56,7 @@ $instituicao = mysql_fetch_array ( mysql_query("SELECT * FROM `instituicoes` WHE
 </div>
 
 
-<?
+<?php
 	include('../../layouts/footer_.php');
 	file_get_contents('../../layouts/footer_.php');
 ?>

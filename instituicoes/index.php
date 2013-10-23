@@ -35,7 +35,7 @@
 				</tr>
 			</thead>
 			<tbody>
-			<? 
+			<?php 
 			include('../config.php'); 
 			$result = mysql_query("SELECT * FROM `instituicoes`") or trigger_error(mysql_error()); 
 			while($row = mysql_fetch_array($result)){ 

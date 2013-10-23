@@ -14,7 +14,7 @@
 <ul class="breadcrumb">
 	<li><a href="../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="index.php">Clientes</a> <span class="divider">|</span></li>
-	<li class="active"><? echo $cliente['nome']; ?></li>
+	<li class="active"><?php echo $cliente['nome']; ?></li>
 </ul>
 
 
@@ -25,17 +25,17 @@
 				
 			<div class="widget-header">
 				<i class="icon-th-list"></i>
-				<h3><? echo $cliente['nome']; ?></h3>
+				<h3><?php echo $cliente['nome']; ?></h3>
 			</div> <!-- /widget-header -->
 			
 			<div class="widget-content">
 				<b>Descrição:</b>
-				<? echo $cliente['desc']; ?><br />
+				<?php echo $cliente['desc']; ?><br />
 				<b>Data de Criação:</b>
-				<? echo $cliente['criado_em']; ?>
+				<?php echo $cliente['criado_em']; ?>
 			</div>
 		</div>
-		<a href="edit.php?id=<? echo $id; ?>" class="btn btn-primary">Editar Informações</a>
+		<a href="edit.php?id=<?php echo $id; ?>" class="btn btn-primary">Editar Informações</a>
 	</div>
 
 	<div class="span8">
@@ -51,7 +51,7 @@
 		
 
 				<div id="txtHint">
-					<?
+					<?php
 					$result = mysql_query("SELECT * FROM solicitantes where cliente_id=$id ");
 
 					echo "<table class='table table-bordered'>";
@@ -62,7 +62,7 @@
 						<th>Cargo</th>
 						<th>Ações</th>
 					</tr>				
-					<?
+					<?php
 
 					while($row = mysql_fetch_array($result))
 						{
@@ -80,7 +80,7 @@
 				</div>
 			</div>
 		</div>
-		<a href="solicitantes/new.php?id=<? echo $id; ?>" class="btn btn-primary">Novo Solicitante</a>
+		<a href="solicitantes/new.php?id=<?php echo $id; ?>" class="btn btn-primary">Novo Solicitante</a>
 	</div>
 </div>
 

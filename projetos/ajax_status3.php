@@ -1,9 +1,9 @@
-<?
+<?php
 $projeto_id=$_GET["projeto_id"];
 include('../config.php'); 
 ?>
 <div class="row-fluid">
-	<?
+	<?php
 	$counter3=1;
 	$result = mysql_query("SELECT * FROM `demandas` where projeto_id=$projeto_id and status=3") or trigger_error(mysql_error()); 
 	while($row = mysql_fetch_array($result)){ 
@@ -13,11 +13,11 @@ include('../config.php');
 	 if($resultado == 0){ ?>
 
 		<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-			<div class="post" id="<? echo $row['id']; ?>" draggable="true" ondragstart="drag(event)">
-				<? echo $row['titulo']; ?>
+			<div class="post" id="<?php echo $row['id']; ?>" draggable="true" ondragstart="drag(event)">
+				<?php echo $row['titulo']; ?>
 				<br />
-				<small class='desc'><? echo substr ($row['desc'], 0, 20) . "..."; ?></small>
-				<?
+				<small class='desc'><?php echo substr ($row['desc'], 0, 20) . "..."; ?></small>
+				<?php
 				$find_problemas_ii = mysql_query("SELECT * from `problemas` where demanda_id = {$row['id']}");
 				while($problema = mysql_fetch_array($find_problemas_ii)){			
 					echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
@@ -26,12 +26,12 @@ include('../config.php');
 			</div>
 		</div>
 	</div><div class="row-fluid">
-	<?}else{?>
+	<?php }else{ ?>
 		<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-			<div class="post" id="<? echo $row['id']; ?>" draggable="true" ondragstart="drag(event)">
-				<? echo $row['titulo']; ?>
+			<div class="post" id="<?php echo $row['id']; ?>" draggable="true" ondragstart="drag(event)">
+				<?php echo $row['titulo']; ?>
 				<br />
-				<small class='desc'><? echo substr ($row['desc'], 0, 20) . "..."; ?></small>
+				<small class='desc'><?php echo substr ($row['desc'], 0, 20) . "..."; ?></small>
 				<?
 				$find_problemas_ii = mysql_query("SELECT * from `problemas` where demanda_id = {$row['id']}");
 				while($problema = mysql_fetch_array($find_problemas_ii)){			
@@ -40,9 +40,9 @@ include('../config.php');
 				?>
 			</div>
 		</div>
-	<?}?>
+	<?php } ?>
 
-	<?$counter3++;}?>
+	<?php $counter3++;} ?>
 
 		<div class='span6 prepost novademanda' id='3' ondrop='drop(event)' ondragover='allowDrop(event)'>Solte demandas aqui!</div>
 </div>

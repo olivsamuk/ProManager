@@ -1,4 +1,4 @@
-<?
+<?php
 	include('../../layouts/header_.php');
 	file_get_contents('../../layouts/header_.php');
 
@@ -24,8 +24,8 @@ if ($rac['tipo'] == 1) {
 <ul class="breadcrumb">
 	<li><a href="../../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="../index.php">Projetos</a> <span class="divider">|</span></li>
-	<li><a href="index.php?id=<?php echo $id_; ?>">RAC's <? echo $projeto['titulo']; ?></a> <span class="divider">|</span></li>
-	<li class="active">RAC-<? echo $rac['identificacao']; ?></li>
+	<li><a href="index.php?id=<?php echo $id_; ?>">RAC's <?php echo $projeto['titulo']; ?></a> <span class="divider">|</span></li>
+	<li class="active">RAC-<?php echo $rac['identificacao']; ?></li>
 </ul>
 
 <div class="row">
@@ -40,7 +40,7 @@ if ($rac['tipo'] == 1) {
 			
 			<div class="widget-content">
 
-				<? 
+				<?php 
 				if (isset($_POST['finalizado'])) { 
 				foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); }  
 				$finalizar = "UPDATE `rac` SET  `finalizado` =  '{$_POST['finalizado']}' WHERE `id` = '$id' "; 
@@ -52,31 +52,31 @@ if ($rac['tipo'] == 1) {
 				?>
 
 
-				<?
+				<?php
 				$status = $rac['finalizado'];
 				if($status == 1){
 				?>
 					<span class="label label-success">Relatório Finalizado</span><br /><br />
-				<?}else{echo "<br />";}?>
+				<?php }else{echo "<br />";} ?>
 				
-				<b>Identificação:</b> <? echo $rac['identificacao']; ?><br /><br />
-				<b>Cliente:</b> <? echo $cliente['nome']; ?><br /><br />
-				<b>Solicitante:</b> <? echo $solicitante['nome']; ?><br /><br />
+				<b>Identificação:</b> <?php echo $rac['identificacao']; ?><br /><br />
+				<b>Cliente:</b> <?php echo $cliente['nome']; ?><br /><br />
+				<b>Solicitante:</b> <?php echo $solicitante['nome']; ?><br /><br />
 
-				<?
+				<?php
 				if($status == 0){
 				?>
 				<form action='' method='POST' />
 					<input type='hidden' name='finalizado' value='1'>
 					<input type='submit' class='btn btn-large btn-primary' value='Finalizar Relatório' />
 				</form>
-				<?}?>
+				<?php } ?>
 
 			</div>
 		</div>
 	</div>
 
-	<? if($status == 0){ ?>
+	<?php if($status == 0){ ?>
 
 	<div class="span4">
 
@@ -90,8 +90,8 @@ if ($rac['tipo'] == 1) {
 			<div class="widget-content">
 
 				<form action="resultado.php" method="post" onsubmit="setarCampos(this); enviarForm('resultado.php', campos, 'divResultado'); return false;"> 
-					<input type='hidden' name='rac_id' id='rac_id' value='<? echo $id; ?>' />
-					<input type='hidden' name='projeto_id' id='projeto_id' value='<? echo $id_; ?>' />
+					<input type='hidden' name='rac_id' id='rac_id' value='<?php echo $id; ?>' />
+					<input type='hidden' name='projeto_id' id='projeto_id' value='<?php echo $id_; ?>' />
 					<input type='hidden' name='status' id='status' value='1' />
 
 					<fieldset>
@@ -119,18 +119,18 @@ if ($rac['tipo'] == 1) {
 
 
 				<div id="divResultado">		
-					<?
+					<?php
 					$find_demandas = mysql_query("SELECT * from `demandas` where rac_id = $id ORDER BY id DESC");
 					echo "<table class='table table-bordered'>";
 					echo "<tr><th>Titulo</th><th>Descrição</th><th>Ações</th></tr>";
 					while($demanda = mysql_fetch_array($find_demandas)){ 
 					?>
 					<tr>
-						<td><? echo $demanda['titulo']; ?></td>
-						<td><? echo $demanda['desc']; ?></td>
-						<td><a href="delete_demanda.php?id=<? echo $demanda['id']; ?>&id_rac=<? echo $id; ?>&id_projeto=<? echo $id_ ?>">Remover</a></td>
+						<td><?php echo $demanda['titulo']; ?></td>
+						<td><?php echo $demanda['desc']; ?></td>
+						<td><a href="delete_demanda.php?id=<?php echo $demanda['id']; ?>&id_rac=<?php echo $id; ?>&id_projeto=<?php echo $id_ ?>">Remover</a></td>
 					</tr>
-					<?}?>
+					<?php } ?>
 				</div>
 
 				<script>
@@ -144,7 +144,7 @@ if ($rac['tipo'] == 1) {
 			</div>
 		</div>
 	</div>
-	<?}else{?>
+	<?php }else{ ?>
 	<div class='span8'>
 
 		<div class="widget">
@@ -157,15 +157,15 @@ if ($rac['tipo'] == 1) {
 			<div class="widget-content">
 				
 				<div id="divResultado">		
-					<?
+					<?php 
 					$find_demandas = mysql_query("SELECT * from `demandas` where rac_id = $id ORDER BY id DESC");
 					echo "<table class='table table-bordered'>";
 					echo "<tr><th>Titulo</th><th>Descrição</th></tr>";
 					while($demanda = mysql_fetch_array($find_demandas)){ 
 					?>
 					<tr>
-						<td><? echo $demanda['titulo']; ?></td>
-						<td><? echo $demanda['desc']; ?></td>						
+						<td><?php echo $demanda['titulo']; ?></td>
+						<td><?php echo $demanda['desc']; ?></td>						
 					</tr>
 					<?php }?>
 				</div>

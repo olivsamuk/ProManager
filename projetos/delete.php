@@ -20,7 +20,7 @@ function abrirmodal()
   </div>
   <div class="modal-body">
 
-		<? 
+		<?php
 		include('../config.php'); 
 		$id = (int) $_GET['id']; 
 		mysql_query("DELETE FROM `projetos` WHERE `id` = '$id' ") ; 

@@ -11,7 +11,7 @@ $cliente = mysql_fetch_array ( mysql_query("SELECT * FROM `clientes` WHERE `id` 
 <ul class="breadcrumb">
 	<li><a href="../../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="../index.php">Clientes</a> <span class="divider">|</span></li>
-	<li><a href="../show.php?id=<? echo $id; ?>"><? echo $cliente['nome']; ?></a> <span class="divider">|</span></li>
+	<li><a href="../show.php?id=<?php echo $id; ?>"><?php echo $cliente['nome']; ?></a> <span class="divider">|</span></li>
 	<li class="active">Novo Solicitante</li>
 </ul>
 
@@ -19,11 +19,11 @@ $cliente = mysql_fetch_array ( mysql_query("SELECT * FROM `clientes` WHERE `id` 
 		
 	<div class="widget-header">
 		<i class="icon-th-list"></i>
-		<h3>Novo Solicitante <small> - Insira os dados do solicitante do cliente <? echo $cliente['nome']; ?></small></h3>
+		<h3>Novo Solicitante <small> - Insira os dados do solicitante do cliente <?php echo $cliente['nome']; ?></small></h3>
 	</div> <!-- /widget-header -->
 	
 	<div class="widget-content">
-		<? 
+		<?php 
 		if (isset($_POST['submitted'])) { 
 		foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); } 
 		$sql = "INSERT INTO `solicitantes` ( `nome` , `cargo` , `email`, `telefone` , `cliente_id` ,  `criado_em`  ) VALUES(  '{$_POST['nome']}' , '{$_POST['cargo']}' , '{$_POST['email']}' , '{$_POST['telefone']}' ,   '{$_POST['cliente_id']}' ,  NOW()  ) "; 
@@ -34,7 +34,7 @@ $cliente = mysql_fetch_array ( mysql_query("SELECT * FROM `clientes` WHERE `id` 
 		?>
 
 		<form action='' method='POST'> 
-			<input type='hidden' name='cliente_id' value='<? echo $id; ?>'><br />
+			<input type='hidden' name='cliente_id' value='<?php echo $id; ?>'><br />
 			<b>Nome:</b><br /><input type='text' name='nome'/> <br />
 			<b>Cargo:</b><br /><input type='text' name='cargo'/> <br />
 			<b>Email:</b><br /><input type='text' name='email'/> <br />

@@ -30,7 +30,7 @@
 				</tr>
 			</thead>
 			<tbody>
-      <?
+      <?php
         $counter = 1;
 				$result = mysql_query("SELECT * FROM `projetos` where colaborador_id = {$_SESSION['id_usuario']}") or trigger_error(mysql_error()); 
 				while($row = mysql_fetch_array($result)){ 
@@ -52,8 +52,8 @@
         </div>
 
 				<tr>
-					<td><? echo $row["titulo"]; ?></td>
-					<td><? echo $row["desc"]; ?></td>
+					<td><?php echo $row["titulo"]; ?></td>
+					<td><?php echo $row["desc"]; ?></td>
           <?php
           $cliente_id = $row['cliente_id'];
 					$cliente = mysql_fetch_array(mysql_query("SELECT * FROM `clientes` where id=$cliente_id"));

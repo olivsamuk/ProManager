@@ -30,21 +30,21 @@
 				</tr>
 			</thead>
 			<tbody>
-			<?
+			<?php
 			include("../config.php");
 			$result = mysql_query("SELECT * FROM `clientes`") or trigger_error(mysql_error()); 
 			while($row = mysql_fetch_array($result)){ 
 			?>
 				<tr>
-					<td><b><a href="show.php?id=<?php echo $row['id']; ?>"><? echo $row['nome']; ?></a></b></td>
+					<td><b><a href="show.php?id=<?php echo $row['id']; ?>"><?php echo $row['nome']; ?></a></b></td>
 					<td><?php echo $row['desc']; ?></td>
 					<td><?php echo $row['criado_em']; ?></td>
 					<td> 
-						<a class="btn btn-primary" title="Editar" href="edit.php?id=<? echo $row['id']; ?>"><i class='btn-icon-only icon-edit'></i></a>
-						<a class="btn btn-danger" title="Remover" href="delete.php?id=<? echo $row['id']; ?>"><i class='btn-icon-only icon-remove'></i></a>
+						<a class="btn btn-primary" title="Editar" href="edit.php?id=<?php echo $row['id']; ?>"><i class='btn-icon-only icon-edit'></i></a>
+						<a class="btn btn-danger" title="Remover" href="delete.php?id=<?php echo $row['id']; ?>"><i class='btn-icon-only icon-remove'></i></a>
 					</td>
 				</tr>
-				<?$counter++;}?>
+				<?php $counter++;} ?>
 			</tbody>
 		</table>
 	</div> <!-- /widget-content -->	

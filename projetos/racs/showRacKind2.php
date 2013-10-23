@@ -1,4 +1,4 @@
-<?
+<?php
 	include('../../layouts/header_.php');
 	file_get_contents('../../layouts/header_.php');
 
@@ -18,8 +18,8 @@ $solicitante = mysql_fetch_array ( mysql_query("SELECT * FROM `solicitantes` WHE
 <ul class="breadcrumb">
 	<li><a href="../../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="../index.php">Projetos</a> <span class="divider">|</span></li>
-	<li><a href="index.php?id=<?php echo $id_; ?>">RAC's <? echo $projeto['titulo']; ?></a> <span class="divider">|</span></li>
-	<li class="active">RAC-<? echo $rac['identificacao']; ?> </li>
+	<li><a href="index.php?id=<?php echo $id_; ?>">RAC's <?php echo $projeto['titulo']; ?></a> <span class="divider">|</span></li>
+	<li class="active">RAC-<?php echo $rac['identificacao']; ?> </li>
 </ul>
 
 <div class="row">
@@ -35,7 +35,7 @@ $solicitante = mysql_fetch_array ( mysql_query("SELECT * FROM `solicitantes` WHE
 			<div class="widget-content">
 
 
-				<? 
+				<?php 
 				if (isset($_POST['finalizado'])) { 
 				foreach($_POST AS $key => $value) { $_POST[$key] = mysql_real_escape_string($value); }  
 				$finalizar = "UPDATE `rac` SET  `finalizado` =  '{$_POST['finalizado']}' WHERE `id` = '$id' "; 
@@ -46,19 +46,19 @@ $solicitante = mysql_fetch_array ( mysql_query("SELECT * FROM `solicitantes` WHE
 				}
 				?>
 
-				<?
+				<?php
 				$status = $rac['finalizado'];
 				if($status == 1){
 				?>
 					<span class="label label-success">Relatório Finalizado</span><br /><br />
-				<?}else{echo "<br />";}?>
+				<?php }else{echo "<br />";} ?>
 				
-				<b>Identificação:</b> <? echo $rac['identificacao']; ?><br /><br />
-				<b>Cliente:</b> <? echo $cliente['nome']; ?><br /><br />
-				<b>Solicitante:</b> <? echo $solicitante['nome']; ?><br /><br />
-				<b>Diagnóstico:</b> <? echo $rac['diagnostico']; ?><br /><br />
+				<b>Identificação:</b> <?php echo $rac['identificacao']; ?><br /><br />
+				<b>Cliente:</b> <?php echo $cliente['nome']; ?><br /><br />
+				<b>Solicitante:</b> <?php echo $solicitante['nome']; ?><br /><br />
+				<b>Diagnóstico:</b> <?php echo $rac['diagnostico']; ?><br /><br />
 
-				<?
+				<?php
 				if($status == 0){
 				?>
 				<form action='' method='POST' />
@@ -66,7 +66,7 @@ $solicitante = mysql_fetch_array ( mysql_query("SELECT * FROM `solicitantes` WHE
 					<input type='submit' class='btn btn-large btn-primary' value='Finalizar Relatório' />
 				</form>
 				<a class='btn btn-large' href="edit.php?id=<?php echo $id;?>&projeto_id=<?php echo $id_;?> ">Editar Informações</a>
-				<?}?>
+				<?php } ?>
 			</div>
 		</div>
 	</div>

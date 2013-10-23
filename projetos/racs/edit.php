@@ -10,7 +10,7 @@
 <ul class="breadcrumb">
 	<li><a href="../../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="../index.php">Projetos</a> <span class="divider">|</span></li>
-	<li><a href=""><? echo $projeto['titulo']; ?></a> <span class="divider">|</span></li>
+	<li><a href=""><?php echo $projeto['titulo']; ?></a> <span class="divider">|</span></li>
 	<li class="active">Editar RAC</li>
 </ul>
 
@@ -26,7 +26,7 @@
 	
 		<div class="widget-content">
 
-			<? 
+			<?php 
 			if (isset($_GET['id']) ) { 
 			$id = (int) $_GET['id']; 
 			if (isset($_POST['submitted'])) { 
@@ -53,7 +53,7 @@
 			</select><br />
 			<input type='submit' value='Editar' class='btn btn-primary' /><input type='hidden' value='1' name='submitted' /> 
 			</form> 
-			<? } ?> 
+			<?php } ?> 
 
 		</div>
 	</div>

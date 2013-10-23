@@ -1,4 +1,4 @@
-<? 
+<?php 
 include('../../layouts/header_.php');
 file_get_contents('../../layouts/header_.php');
 ?> 
@@ -21,7 +21,7 @@ function abrirmodal()
   </div>
   <div class="modal-body">
 
-<? 
+<?php 
 include('../../config.php'); 
 $id = (int) $_GET['id']; 
 $id_ = (int) $_GET['id_'];

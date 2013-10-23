@@ -14,7 +14,7 @@ file_get_contents('../../layouts/header_.php');
 	<div class="span12">
 
 		<h3>Altere seus dados</h3>
-		<? 
+		<?php 
 		include('../../config.php');  
 
 		$senhapura = $_POST['senha'];
@@ -31,8 +31,8 @@ file_get_contents('../../layouts/header_.php');
 		?>
 
 		<form action='' method='POST'> 
-		<p><b>Nome:</b><br /><input type='text' name='nome' value='<?= stripslashes($row['nome']) ?>' /> 
-		<p><b>Email:</b><br /><input type='text' name='email' value='<?= stripslashes($row['email']) ?>'>
+		<p><b>Nome:</b><br /><input type='text' name='nome' value='<?php stripslashes($row['nome']) ?>' /> 
+		<p><b>Email:</b><br /><input type='text' name='email' value='<?php stripslashes($row['email']) ?>'>
 		<p><b>Senha:</b><br /><input type='password' name='senha' /> 
 		<p><input type='submit' value='Salvar' /><input type='hidden' value='1' name='submitted' /> 
 		</form> 

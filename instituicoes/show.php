@@ -40,7 +40,7 @@ xmlhttp.onreadystatechange=function()
     document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
     }
   }
-xmlhttp.open("GET","getuser.php?id=<? echo $id; ?>&q="+str,true);
+xmlhttp.open("GET","getuser.php?id=<?php echo $id; ?>&q="+str,true);
 xmlhttp.send();
 }
 </script>
@@ -48,7 +48,7 @@ xmlhttp.send();
 <ul class="breadcrumb">
 	<li><a href="../index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="index.php">Instituições</a> <span class="divider">|</span></li>
-	<li class="active"><? echo $instituicao['nome']; ?></li>
+	<li class="active"><?php echo $instituicao['nome']; ?></li>
 </ul>
 
 <div class="row">
@@ -56,17 +56,17 @@ xmlhttp.send();
 		<div class="widget">
 			<div class="widget-header">
 				<i class="icon-th-list"></i>
-				<h3><? echo $instituicao['nome']; ?></h3>
+				<h3><?php echo $instituicao['nome']; ?></h3>
 			</div> <!-- /widget-header -->
 			<div class="widget-content">
 				<b>Descrição:</b>
-				<? echo $instituicao['desc']; ?><br />
+				<?php echo $instituicao['desc']; ?><br />
 				<b>Data de Criação:</b>
-				<? echo $instituicao['criado_em']; ?>
+				<?php echo $instituicao['criado_em']; ?>
 				<br /><br />
 			</div>
 			<br />
-			<a href="edit.php?id=<? echo $id; ?>" class="btn btn-primary">Editar dados</a>
+			<a href="edit.php?id=<?php echo $id; ?>" class="btn btn-primary">Editar dados</a>
 		</div>
 	</div>
 
@@ -88,19 +88,19 @@ xmlhttp.send();
 						</tr>
 					</thead>
 					<tbody>
-					<?
+					<?php
 					$counter=0;
 					$find_setores = mysql_query("SELECT * FROM `setores` where instituicao_id = $id") or trigger_error(mysql_error()); 
 					while($setor = mysql_fetch_array($find_setores)){
 					?>
 						<tr>
-							<td><? echo $setor['nome']; ?></td>
+							<td><?php echo $setor['nome']; ?></td>
 							<td> 
-								<a class="btn btn-primary" title="Editar" href="setores/edit.php?id=<? echo $setor['id']; ?>&id_=<? echo $id; ?>" ><i class='btn-icon-only icon-edit'></i></a>
-								<a class="btn btn-danger" title="Remover" href="setores/delete.php?id=<? echo $setor['id']; ?>&id_=<? echo $id; ?>" ><i class='btn-icon-only icon-remove'></i></a>
+								<a class="btn btn-primary" title="Editar" href="setores/edit.php?id=<?php echo $setor['id']; ?>&id_=<?php echo $id; ?>" ><i class='btn-icon-only icon-edit'></i></a>
+								<a class="btn btn-danger" title="Remover" href="setores/delete.php?id=<?php echo $setor['id']; ?>&id_=<?php echo $id; ?>" ><i class='btn-icon-only icon-remove'></i></a>
 							</td>
 						</tr>
-						<?$counter++;}?>
+						<?php $counter++;} ?>
 					</tbody>
 				</table>
 			</div> <!-- /widget-content -->	
@@ -109,7 +109,7 @@ xmlhttp.send();
 		  
 
 		<!-- Button to trigger modal -->
-		<a href="setores/new.php?id=<? echo $id; ?>" class="btn btn-primary">Novo Setor</a>
+		<a href="setores/new.php?id=<?php echo $id; ?>" class="btn btn-primary">Novo Setor</a>
 	</div>
 
 	<div class="span4">
@@ -126,15 +126,15 @@ xmlhttp.send();
 				<form>
 				<select name="users" onchange="showUser(this.value)">
 				<option value="">Todos</option>
-				<? 
+				<?php 
 				$find_setores = mysql_query("SELECT * FROM `setores` where instituicao_id = $id") or trigger_error(mysql_error()); 			
 				while($setores = mysql_fetch_array($find_setores)){ ?>
-				<option value="<? echo $setores['id']; ?>"><? echo $setores['nome']; ?></option>
-				<?}?>		
+				<option value="<?php echo $setores['id']; ?>"><?php echo $setores['nome']; ?></option>
+				<?php } ?>		
 				</select>
 				</form>
 				<div id="txtHint">
-					<?
+					<?php
 					$result = mysql_query("SELECT * FROM colaboradores ");
 					?>
 					<table class='table table-striped table-bordered'>
@@ -143,16 +143,16 @@ xmlhttp.send();
 							<th colspan=2>Ações</th>
 						</tr>
 
-					<?
+					<?php
 					while($row = mysql_fetch_array($result))
 						{
 					?>
 						<tr>
-							<td><? echo $row['nome']; ?></td>
-							<td><a class="btn btn-primary" title="Editar" href="colaboradores/edit.php?id=<? echo $row['id']; ?>&id_=<? echo $id; ?>"><i class='btn-icon-only icon-edit'></i></a>
-							<a class="btn btn-danger" title="Remover" href="colaboradores/delete.php?id=<? echo $row['id']; ?>&id_=<? echo $id; ?>"><i class='btn-icon-only icon-remove'></i></a></td>
+							<td><?php echo $row['nome']; ?></td>
+							<td><a class="btn btn-primary" title="Editar" href="colaboradores/edit.php?id=<?php echo $row['id']; ?>&id_=<?php echo $id; ?>"><i class='btn-icon-only icon-edit'></i></a>
+							<a class="btn btn-danger" title="Remover" href="colaboradores/delete.php?id=<?php echo $row['id']; ?>&id_=<?php echo $id; ?>"><i class='btn-icon-only icon-remove'></i></a></td>
 						</tr>
-					<?
+					<?php
 						}
 					echo "</table>";
 

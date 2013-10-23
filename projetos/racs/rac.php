@@ -1,12 +1,11 @@
-<?
+<?php
 include('../../config.php'); 
 $id = (int) $_GET['id']; 
 $rac = mysql_fetch_array ( mysql_query("SELECT * FROM `rac` WHERE `id` = '$id'")); 
-$cliente_id = $rac['cliente_id'];
-$cliente = mysql_fetch_array ( mysql_query("SELECT * FROM `clientes` WHERE `id` = '$cliente_id'")); 
-
-$solicitante_id = $rac['solicitante_id'];
-$solicitante = mysql_fetch_array ( mysql_query("SELECT * FROM `solicitantes` WHERE `id` = '$solicitante_id'")); 
+$cliente = mysql_fetch_array ( mysql_query("SELECT * FROM `clientes` WHERE `id` = {$rac['cliente_id']}")); 
+$solicitante = mysql_fetch_array ( mysql_query("SELECT * FROM `solicitantes` WHERE `id` = {$rac['solicitante_id']}")); 
+$projeto = mysql_fetch_array(mysql_query("SELECT * FROM `projetos` where id = {$rac['projeto_id']} "));
+$colaborador = mysql_fetch_array(mysql_query("SELECT * FROM `colaboradores` where id = {$projeto['colaborador_id']} "))
 ?>
 <!DOCTYPE>
 <html lang="pt-br">
@@ -15,16 +14,16 @@ $solicitante = mysql_fetch_array ( mysql_query("SELECT * FROM `solicitantes` WHE
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="../../assets/stylesheets/bootstrap.css"/>
    <link rel="stylesheet" href="../../assets/stylesheets/bootstrap-responsive.css"/>
-		<style>
-		#cor {
-			background:#ccc;
-			border:solid #ccc 1px;
-		}
+        <style>
+        #cor {
+            background:#ccc;
+            border:solid #ccc 1px;
+        }
 
-		#borda {
-			border:solid #ccc 1px;
-		}
-		</style>
+        #borda {
+            border:solid #ccc 1px;
+        }
+        </style>
    
    <title>RAC</title>
    </head>
@@ -42,7 +41,7 @@ Centro de Gestão de Tecnologia da Informação
                  <div class="span12" id="cor">Cliente</div>
             </div>   
             <div class="row-fluid">
-                 <div class="span12" id="borda"> <? echo $cliente['nome'] ?></div>
+                 <div class="span12" id="borda"> <?php echo $cliente['nome'] ?></div>
             </div>  
         </div>
      </div><br>
@@ -55,8 +54,8 @@ Centro de Gestão de Tecnologia da Informação
                  <div class="span6" id="cor">Cargo</div>
             </div>   
             <div class="row-fluid">
-                 <div class="span6" id="borda"> <? echo $solicitante['nome']; ?></div>
-                 <div class="span6" id="borda"> <? echo $solicitante['cargo']; ?></div>
+                 <div class="span6" id="borda"> <?php echo $solicitante['nome']; ?></div>
+                 <div class="span6" id="borda"> <?php echo $solicitante['cargo']; ?></div>
             </div>  
         </div>
      </div><br>
@@ -68,7 +67,7 @@ Centro de Gestão de Tecnologia da Informação
                  <div class="span12"id="cor">Motivo da Solicitação</div>
             </div>   
             <div class="row-fluid">
-                 <div class="span12" id="borda"><? echo $rac['motivo']; ?></div>
+                 <div class="span12" id="borda"><?php echo $rac['motivo']; ?></div>
             </div>  
         </div>
      </div><br>
@@ -82,23 +81,23 @@ Centro de Gestão de Tecnologia da Informação
             <div class="row-fluid">
                <div class="span12" id="borda"><br />
 
-																<?php 
+                                                                <?php 
                                                                             echo $rac['diagnostico'];
                                                                             
-																			$find_demandas = mysql_query("SELECT * from `demandas` where rac_id = $id");
-																			echo "<ul>";
-																			while($demanda = mysql_fetch_array($find_demandas)){ 
-																			?>
-																			<li><? echo $demanda['titulo']; ?> -
-																			<? echo $demanda['desc']; ?></li>
-																			<?}?>
-																			</ul>
+                                                                            $find_demandas = mysql_query("SELECT * from `demandas` where rac_id = $id");
+                                                                            echo "<ul>";
+                                                                            while($demanda = mysql_fetch_array($find_demandas)){ 
+                                                                            ?>
+                                                                            <li><?php echo $demanda['titulo']; ?> -
+                                                                            <?php echo $demanda['desc']; ?></li>
+                                                                            <?}?>
+                                                                            </ul>
 
 
-																<br />
+                                                                <br />
                </div>  
-        		</div>
-				</div>
+                </div>
+                </div>
      </div><br>
      
      <!-- LINHA 5 ATENDIMENTO --------------------------------->
@@ -112,8 +111,8 @@ Centro de Gestão de Tecnologia da Informação
                  <div class="span6" id="borda">Etapa</div>
             </div>   
             <div class="row-fluid">
-                 <div class="span6" id="borda"><? echo $rac['criado_em']; ?></div>
-                 <div class="span6" id="borda"><? echo $rac['etapa']; ?></div>
+                 <div class="span6" id="borda"><?php echo $rac['criado_em']; ?></div>
+                 <div class="span6" id="borda"><?php echo $rac['etapa']; ?></div>
             </div>  
         </div>
      </div><br>
@@ -130,7 +129,7 @@ Centro de Gestão de Tecnologia da Informação
                       <div class="span12" id="borda">Técnico  (nome do técnico)</div>
                     </div>
                     <div class="row-fluid">
-                      <div class="span12" id="borda">Samuel Silva de Oliveira</div>
+                      <div class="span12" id="borda"><?php echo $colaborador['nome']; ?></div>
                     </div>
                     <div class="row-fluid">
                       <div class="span12" id="borda">Coordenador / Gerente</div>

@@ -41,7 +41,7 @@ include("../../check.php");
 		  <div class="navbar-inner">
 				<div class="container">
 					<ul class="nav">
-						<li><a href="">Olá, <? echo $_SESSION['nome_usuario'] ?></a></li>
+						<li><a href="">Olá, <?php echo $_SESSION['nome_usuario'] ?></a></li>
 						<li class="divider-vertical"></li>
 						<li><a href="../../instituicoes/colaboradores/mudar_senha.php">Alterar Senha</a></li>
 						<li class="divider-vertical"></li>
@@ -75,9 +75,9 @@ include("../../check.php");
 							<?php } ?>
 							<li><a href="../../clientes/index.php"><i class='icon-group'></i> Clientes</a></li>
 							<li class="divider-vertical"></li>
-							<li><a href="../../projetos/index.php"><i class='icon-tags'></i> Projetos</a></li>	
+							<li><a href="../../projetos/index.php"><i class='icon-tags'></i> Meus Projetos</a></li>	
 							<li class="divider-vertical"></li>							
-							<li><a href="../../relatorios/"><i class='icon-bar-chart'></i> Relatórios</a></li>
+							<li><a href="../../relatorios/"><i class='icon-bar-chart'></i> Quadro de Projetos</a></li>
 						</ul>
 					</div>
 				</div>

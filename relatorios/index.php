@@ -38,11 +38,11 @@
 					<th>Cliente</th>
           <th>Colaborador</th>
 					<th>Criado Em</th>
-          <th>Demandas - <span class="label label-important">Não Iniciadas</span> <span class="label label-warning">Iniciadas</span> <span class="label label-success">Finalizadas</span></th>
+          <th>Demandas<br /><span class="label label-important">Não Iniciadas</span> <span class="label label-warning">Iniciadas</span> <span class="label label-success">Finalizadas</span></th>
 				</tr>
 			</thead>
 			<tbody>
-      <?
+      <?php
         $counter = 1;
 				$result = mysql_query("SELECT * FROM `projetos`") or trigger_error(mysql_error()); 
 				while($row = mysql_fetch_array($result)){ 
@@ -56,8 +56,8 @@
       ?>
       
 				<tr data-toggle="collapse" data-target="#demo<?php echo $counter; ?>" class="accordion-toggle">
-					<td><a href="show.php?id="><b><? echo $row["titulo"]; ?></b></a></td>
-					<td><? echo $row["desc"]; ?></td>
+					<td><b><?php echo $row["titulo"]; ?></b></td>
+					<td><?php echo $row["desc"]; ?></td>
           <?php
 					$cliente = mysql_fetch_array(mysql_query("SELECT * FROM `clientes` where id={$row['cliente_id']};"));
 					$colaborador = mysql_fetch_array(mysql_query("SELECT * FROM `colaboradores` where id={$row['colaborador_id']}"));
@@ -131,7 +131,6 @@
 
 </div> <!-- /widget -->
 
-<a class="btn btn-primary" href="new.php">Novo Projeto</a>
 
 <?php
 	include('../layouts/footer.php');

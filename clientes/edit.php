@@ -22,7 +22,7 @@
 			
 			<div class="widget-content">
 
-				<? 
+				<?php 
 				include('../config.php'); 
 				if (isset($_GET['id']) ) { 
 				$id = (int) $_GET['id']; 
@@ -41,7 +41,7 @@
 				<b>Desc:</b><br /><input type='text' name='desc' value='<?= stripslashes($row['desc']) ?>' /> <br />
 				<input type='submit' value='Editar' class='btn btn-primary' /><input type='hidden' value='1' name='submitted' /> 
 				</form> 
-				<? } ?> 
+				<?php } ?> 
 
 			</div>
 		</div>

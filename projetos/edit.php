@@ -20,7 +20,7 @@
       </div> <!-- /widget-header -->
       
       <div class="widget-content">
-				<? 
+				<?php
 				include('../config.php'); 
 				if (isset($_GET['id']) ) { 
 				$id = (int) $_GET['id']; 
@@ -40,7 +40,7 @@
 				
 				<input type='submit' class='btn btn-primary' value='Editar' /><input type='hidden' value='1' name='submitted' /> <br />
 				</form> 
-				<? } ?> 
+				<?php } ?> 
 	</div>
 </div>
 
