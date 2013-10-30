@@ -41,7 +41,7 @@ Centro de Gestão de Tecnologia da Informação
                  <div class="span12" id="cor">Cliente</div>
             </div>   
             <div class="row-fluid">
-                 <div class="span12" id="borda"> <?php echo $cliente['nome'] ?></div>
+                 <div class="span12" id="borda"> <?php echo $cliente['nome']; ?></div>
             </div>  
         </div>
      </div><br>
@@ -90,7 +90,7 @@ Centro de Gestão de Tecnologia da Informação
                                                                             ?>
                                                                             <li><?php echo $demanda['titulo']; ?> -
                                                                             <?php echo $demanda['desc']; ?></li>
-                                                                            <?}?>
+                                                                            <?php } ?>
                                                                             </ul>
 
 

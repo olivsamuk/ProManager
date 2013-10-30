@@ -32,7 +32,7 @@ include('../config.php');
 				<?php echo $row['titulo']; ?>
 				<br />
 				<small class='desc'><?php echo substr ($row['desc'], 0, 20) . "..."; ?></small>
-				<?
+				<?php
 				$find_problemas_ii = mysql_query("SELECT * from `problemas` where demanda_id = {$row['id']}");
 				while($problema = mysql_fetch_array($find_problemas_ii)){			
 					echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";

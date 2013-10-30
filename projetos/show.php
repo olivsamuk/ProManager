@@ -55,7 +55,7 @@
 								<?php echo $row['titulo']; ?>
 								<br />
 								<small class='desc'><?php echo substr ($row['desc'], 0, 20) . "..."; ?></small>
-								<?
+								<?php
 								$find_problemas = mysql_query("SELECT * from `problemas` where demanda_id = {$row['id']}");
 								while($problema = mysql_fetch_array($find_problemas)){			
 									echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
@@ -65,13 +65,13 @@
 						</div>
 					</div>
 					<div class="row-fluid">
-					<?}else{?>
+					<?php }else{ ?>
 						<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
 							<div class="post" id="<?php echo $row['id']; ?>" draggable="true" ondragstart="drag(event)">
 								<?php echo $row['titulo']; ?>
 								<br />
 								<small class='desc'><?php echo substr ($row['desc'], 0, 20) . "..."; ?></small>
-								<?
+								<?php
 								$find_problemas = mysql_query("SELECT * from `problemas` where demanda_id = {$row['id']}");
 								while($problema = mysql_fetch_array($find_problemas)){			
 									echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
@@ -79,7 +79,7 @@
 								?>
 							</div>
 						</div>
-					<?}?>
+					<?php } ?>
 
 					<?php $counter++;}?>
 
@@ -128,7 +128,7 @@
 								<?php echo $registro2['titulo']; ?>
 								<br />
 								<small class='desc'><?php echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
-								<?
+								<?php
 								$find_problemas_i = mysql_query("SELECT * from `problemas` where demanda_id = {$registro2['id']}");
 								while($problema = mysql_fetch_array($find_problemas_i)){			
 									echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
@@ -183,7 +183,7 @@
 								<?php echo $registro2['titulo']; ?>
 								<br />
 								<small class='desc'><?php echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
-								<?
+								<?php
 								$find_problemas_ii = mysql_query("SELECT * from `problemas` where demanda_id = {$registro2['id']}");
 								while($problema = mysql_fetch_array($find_problemas_ii)){			
 									echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
@@ -191,7 +191,7 @@
 								?>
 							</div>
 						</div>
-					<?}?>
+					<?php } ?>
 
 					<?php $counter2++;}?>
 
