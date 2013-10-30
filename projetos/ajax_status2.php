@@ -18,10 +18,10 @@ $resultado = $counter2%2;
 
  if($resultado == 0){ ?>
 	<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-		<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
-			<? echo $registro2['titulo']; ?>
+		<div class="post" id="<?php echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
+			<?php echo $registro2['titulo']; ?>
 			<br />
-			<small class='desc'><? echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
+			<small class='desc'><?php echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
 			<?php
 			$find_problemas_i = mysql_query("SELECT * from `problemas` where demanda_id = {$registro2['id']}");
 			while($problema = mysql_fetch_array($find_problemas_i)){			
@@ -34,7 +34,7 @@ $resultado = $counter2%2;
 <div class="row-fluid">
 <?php }else{ ?>
 	<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-		<div class="post" id="<? echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
+		<div class="post" id="<?php echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
 			<?php echo $registro2['titulo']; ?>
 			<br />
 			<small class='desc'><?php echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
