@@ -4,8 +4,7 @@
 ?>
 
 <ul class="breadcrumb">
-	<li><a href="../index.php">Início</a> <span class="divider">|</span></li>
-	<li><a href="index.php">Seus Projetos</a> <span class="divider">|</span></li>
+	<li><a href="index.php">Início</a> <span class="divider">|</span></li>
 	<li class="active">Editar Projeto</li>
 </ul>
 

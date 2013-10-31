@@ -11,8 +11,7 @@
 
 
 <ul class="breadcrumb">
-	<li><a href="../index.php">Início</a> <span class="divider">|</span></li>
-	<li><a href="../projetos/index.php">Projetos</a> <span class="divider">|</span></li>
+	<li><a href="../projetos/index.php">Início</a> <span class="divider">|</span></li>
 	<li><a href="../projetos/show.php?id=<?php echo $id; ?>"><?php echo $projeto['titulo']; ?></a> <span class="divider">|</span></li>
 	<li class="active">Relatórios</li>
 </ul>

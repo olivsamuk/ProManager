@@ -5,8 +5,7 @@
 ?>
 
 <ul class="breadcrumb">
-	<li><a href="../index.php">Início</a> <span class="divider">|</span></li>
-	<li class="active">Seus Projetos</li>
+	<li class="active">Início</li>
 </ul>
 
 <div class="widget widget-table action-table">
