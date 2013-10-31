@@ -3,6 +3,7 @@ $projeto_id=$_GET["projeto_id"];
 include('../config.php'); 
 ?>
 <div class="row-fluid">
+	<div class='span6 prepost novademanda' id='3' ondrop='drop(event)' ondragover='allowDrop(event)'>Solte demandas aqui!</div>
 	<?php
 	$counter3=1;
 	$result = mysql_query("SELECT * FROM `demandas` where projeto_id=$projeto_id and status=3") or trigger_error(mysql_error()); 
@@ -10,7 +11,7 @@ include('../config.php');
 	foreach($row AS $key => $value) { $row[$key] = stripslashes($value); }  
 	$resultado = $counter3%2; 
 
-	 if($resultado == 0){ ?>
+	 if(!$resultado == 0){ ?>
 
 		<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
 			<div class="post" id="<?php echo $row['id']; ?>" draggable="true" ondragstart="drag(event)">
@@ -44,5 +45,4 @@ include('../config.php');
 
 	<?php $counter3++;} ?>
 
-		<div class='span6 prepost novademanda' id='3' ondrop='drop(event)' ondragover='allowDrop(event)'>Solte demandas aqui!</div>
 </div>

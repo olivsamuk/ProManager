@@ -13,192 +13,220 @@
 		font-style:italic;
 		color:#606060;
 }
+.widget-content {
+		height:350px;
+		overflow:auto;
+}
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment  {
+	display: none;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+	background-color: #666;
+	-webkit-border-radius: 6px;
+	position:relative;
+	right:20px;
+}
+.title_status{
+	background-color: #fff;
+	padding:7px;
+	margin-top:0;
+	text-align:center;
+}
+
 </style>
 
 <ul class="breadcrumb">
-	<li><a href="../index.php">Início</a> <span class="divider">|</span></li>
-	<li><a href="../projetos/index.php">Projetos</a> <span class="divider">|</span></li>
-	<li class="active"><?php echo $projeto['titulo']; ?></li>
+	<li><a href="../projetos/index.php">Início</a> <span class="divider">|</span></li>
+	<li class="active">Projeto <?php echo $projeto['titulo']; ?> [ <a href="#myModal" role="button" data-toggle="modal">Informe Problemas</a> - <a href="javascript: document.getElementById('myForm').submit();">Ver Gráfico</a> ]</li>
 </ul>
 
-<div class="row">
-	<div class="span12">
-	  <ul class="nav nav-pills">
-    	<li>
-   			<a href="#myModal" role="button" data-toggle="modal">Informar Problemas</a>
-    	</li>
-    	<li>
-				<a href="javascript: document.getElementById('myForm').submit();">Ver Relatórios</a>
-    	</li>
-    </ul>
-	</div>
-</div>
+
 
 <div class="row">
 	<div class="span4">
-		<div class="well">
-			<h4><a href="">Demandas não iniciadas</a></h4>
-			<div id="status1">
-				<div class="row-fluid">
-					<?php
-					$counter=1;
-					$result = mysql_query("SELECT * FROM `demandas` where projeto_id=$id and status=1") or trigger_error(mysql_error()); 
-					$n_iniciados = mysql_num_rows($result);
-					while($row = mysql_fetch_array($result)){ 
-					foreach($row AS $key => $value) { $row[$key] = stripslashes($value); }  
-					$resultado = $counter%2; 
-
-					 if($resultado == 0){ ?>
-
-						<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-							<div class="post" id="<?php echo $row['id']; ?>" draggable="true" ondragstart="drag(event)">
-								<?php echo $row['titulo']; ?>
-								<br />
-								<small class='desc'><?php echo substr ($row['desc'], 0, 20) . "..."; ?></small>
-								<?php
-								$find_problemas = mysql_query("SELECT * from `problemas` where demanda_id = {$row['id']}");
-								while($problema = mysql_fetch_array($find_problemas)){			
-									echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
-								}								
-								?>
-							</div>
-						</div>
-					</div>
+		<div class="widget">
+			<div class="widget-header">
+				<i class="icon-th-list"></i>
+				<h3>Demandas não Iniciadas</h3>
+			</div> <!-- /widget-header -->
+			<div class="widget-content">				
+				<div id="status1">
 					<div class="row-fluid">
-					<?php }else{ ?>
-						<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-							<div class="post" id="<?php echo $row['id']; ?>" draggable="true" ondragstart="drag(event)">
-								<?php echo $row['titulo']; ?>
-								<br />
-								<small class='desc'><?php echo substr ($row['desc'], 0, 20) . "..."; ?></small>
-								<?php
-								$find_problemas = mysql_query("SELECT * from `problemas` where demanda_id = {$row['id']}");
-								while($problema = mysql_fetch_array($find_problemas)){			
-									echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
-								}								
-								?>
-							</div>
-						</div>
-					<?php } ?>
 
-					<?php $counter++;}?>
-
-		
 						<div class='span6 prepost novademanda' id='1' ondrop='drop(event)' ondragover='allowDrop(event)'>Solte demandas aqui!</div>
 
-				</div><!--/row-fluid-->
-			</div><!--/status1-->
+						<?php
+						$counter=1;
+						$result = mysql_query("SELECT * FROM `demandas` where projeto_id=$id and status=1") or trigger_error(mysql_error()); 
+						$n_iniciados = mysql_num_rows($result);
+						while($row = mysql_fetch_array($result)){ 
+						foreach($row AS $key => $value) { $row[$key] = stripslashes($value); }  
+						$resultado = $counter%2; 
+
+						 if(!$resultado == 0){ ?>
+
+							<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
+								<div class="post" id="<?php echo $row['id']; ?>" draggable="true" ondragstart="drag(event)">
+									<?php echo $row['titulo']; ?>
+									<br />
+									<small class='desc'><?php echo substr ($row['desc'], 0, 20) . "..."; ?></small>
+									<?php
+									$find_problemas = mysql_query("SELECT * from `problemas` where demanda_id = {$row['id']}");
+									while($problema = mysql_fetch_array($find_problemas)){			
+										echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
+									}								
+									?>
+								</div>
+							</div>
+						</div>
+						<div class="row-fluid">
+						<?php }else{ ?>
+							<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
+								<div class="post" id="<?php echo $row['id']; ?>" draggable="true" ondragstart="drag(event)">
+									<?php echo $row['titulo']; ?>
+									<br />
+									<small class='desc'><?php echo substr ($row['desc'], 0, 20) . "..."; ?></small>
+									<?php
+									$find_problemas = mysql_query("SELECT * from `problemas` where demanda_id = {$row['id']}");
+									while($problema = mysql_fetch_array($find_problemas)){			
+										echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
+									}								
+									?>
+								</div>
+							</div>
+						<?php } ?>
+
+						<?php $counter++;}?>
+						
+
+					</div><!--/row-fluid-->
+				</div><!--/status1-->
+			</div>
 		</div>
 	</div>
 
 	<div class="span4">
-		<div class="well">
-			<h4><a href="">Iniciado</a></h4>
-			<div id="status2">
-				<div class="row-fluid">
-
-					<?php
-					$counter2=1;
-					$demandas_status2 = mysql_query("SELECT * FROM `demandas` where projeto_id=$id and status=2") or trigger_error(mysql_error()); 
-					$iniciados = mysql_num_rows($demandas_status2);
-					while($registro2 = mysql_fetch_array($demandas_status2)){ 
-					foreach($registro2 AS $key => $value) { $registro2[$key] = stripslashes($value); }  
-					$resultado = $counter2%2; 
-
-					 if($resultado == 0){ ?>
-
-						<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-							<div class="post" id="<?php echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
-								<?php echo $registro2['titulo']; ?>
-								<br />
-								<small class='desc'><?php echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
-								<?php
-								$find_problemas_i = mysql_query("SELECT * from `problemas` where demanda_id = {$registro2['id']}");
-								while($problema = mysql_fetch_array($find_problemas_i)){			
-									echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
-								}								
-								?>
-							</div>
-						</div>
-					</div>
+		<div class="widget">
+			<div class="widget-header">
+				<i class="icon-th-list"></i>
+				<h3>Demandas Iniciadas</h3>
+			</div> <!-- /widget-header -->
+			<div class="widget-content">	
+				<div id="status2">
 					<div class="row-fluid">
-					<?php }else{ ?>
-						<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-							<div class="post" id="<?php echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
-								<?php echo $registro2['titulo']; ?>
-								<br />
-								<small class='desc'><?php echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
-								<?php
-								$find_problemas_i = mysql_query("SELECT * from `problemas` where demanda_id = {$registro2['id']}");
-								while($problema = mysql_fetch_array($find_problemas_i)){			
-									echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
-								}								
-								?>
-							</div>
-						</div>
-					<?php }?>
-
-					<?php $counter2++;}?>
-
 						<div class='span6 prepost novademanda' id='2' ondrop='drop(event)' ondragover='allowDrop(event)'>Solte demandas aqui!</div>
-				</div>
-			</div><!-- /texthint -->
+						<?php
+						$counter2=1;
+						$demandas_status2 = mysql_query("SELECT * FROM `demandas` where projeto_id=$id and status=2") or trigger_error(mysql_error()); 
+						$iniciados = mysql_num_rows($demandas_status2);
+						while($registro2 = mysql_fetch_array($demandas_status2)){ 
+						foreach($registro2 AS $key => $value) { $registro2[$key] = stripslashes($value); }  
+						$resultado = $counter2%2; 
+
+						 if(!$resultado == 0){ ?>
+
+							<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
+								<div class="post" id="<?php echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
+									<?php echo $registro2['titulo']; ?>
+									<br />
+									<small class='desc'><?php echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
+									<?php
+									$find_problemas_i = mysql_query("SELECT * from `problemas` where demanda_id = {$registro2['id']}");
+									while($problema = mysql_fetch_array($find_problemas_i)){			
+										echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
+									}								
+									?>
+								</div>
+							</div>
+						</div>
+						<div class="row-fluid">
+						<?php }else{ ?>
+							<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
+								<div class="post" id="<?php echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
+									<?php echo $registro2['titulo']; ?>
+									<br />
+									<small class='desc'><?php echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
+									<?php
+									$find_problemas_i = mysql_query("SELECT * from `problemas` where demanda_id = {$registro2['id']}");
+									while($problema = mysql_fetch_array($find_problemas_i)){			
+										echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
+									}								
+									?>
+								</div>
+							</div>
+						<?php }?>
+
+						<?php $counter2++;}?>
+							
+					</div>
+				</div><!-- /status2 -->
+			</div>
 		</div>
 	</div>
 
 	<div class="span4">
-		<div class="well">
-			<h4><a href="">Finalizado</a></h4>
-			<div id="status3">
-				<div class="row-fluid">
-
-					<?php
-					$counter2=1;
-					$demandas_status2 = mysql_query("SELECT * FROM `demandas` where projeto_id=$id and status=3") or trigger_error(mysql_error()); 
-					$finalizados = mysql_num_rows($demandas_status2);
-					while($registro2 = mysql_fetch_array($demandas_status2)){ 
-					foreach($registro2 AS $key => $value) { $registro2[$key] = stripslashes($value); }  
-					$resultado = $counter2%2; 
-
-					 if($resultado == 0){ ?>
-
-						<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-							<div class="post" id="<?php echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
-								<?php echo $registro2['titulo']; ?>
-								<br />
-								<small class='desc'><?php echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
-								<?php
-								$find_problemas_ii = mysql_query("SELECT * from `problemas` where demanda_id = {$registro2['id']}");
-								while($problema = mysql_fetch_array($find_problemas_ii)){			
-									echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
-								}								
-								?>
-							</div>
-						</div>
-					</div>
+		<div class="widget">
+			<div class="widget-header">
+				<i class="icon-th-list"></i>
+				<h3>Demandas Finalizadas</h3>
+			</div> <!-- /widget-header -->
+			<div class="widget-content">	
+				<div id="status3">
 					<div class="row-fluid">
-					<?php }else{ ?>
-						<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
-							<div class="post" id="<?php echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
-								<?php echo $registro2['titulo']; ?>
-								<br />
-								<small class='desc'><?php echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
-								<?php
-								$find_problemas_ii = mysql_query("SELECT * from `problemas` where demanda_id = {$registro2['id']}");
-								while($problema = mysql_fetch_array($find_problemas_ii)){			
-									echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
-								}								
-								?>
+						<div class='span6 prepost novademanda' id='3' ondrop='drop(event)' ondragover='allowDrop(event)'>Solte demandas aqui!</div>
+						<?php
+						$counter2=1;
+						$demandas_status2 = mysql_query("SELECT * FROM `demandas` where projeto_id=$id and status=3") or trigger_error(mysql_error()); 
+						$finalizados = mysql_num_rows($demandas_status2);
+						while($registro2 = mysql_fetch_array($demandas_status2)){ 
+						foreach($registro2 AS $key => $value) { $registro2[$key] = stripslashes($value); }  
+						$resultado = $counter2%2; 
+
+						 if(!$resultado == 0){ ?>
+
+							<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
+								<div class="post" id="<?php echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
+									<?php echo $registro2['titulo']; ?>
+									<br />
+									<small class='desc'><?php echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
+									<?php
+									$find_problemas_ii = mysql_query("SELECT * from `problemas` where demanda_id = {$registro2['id']}");
+									while($problema = mysql_fetch_array($find_problemas_ii)){			
+										echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
+									}								
+									?>
+								</div>
 							</div>
 						</div>
-					<?php } ?>
+						<div class="row-fluid">
+						<?php }else{ ?>
+							<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
+								<div class="post" id="<?php echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
+									<?php echo $registro2['titulo']; ?>
+									<br />
+									<small class='desc'><?php echo substr ($registro2['desc'], 0, 20) . "..."; ?></small>
+									<?php
+									$find_problemas_ii = mysql_query("SELECT * from `problemas` where demanda_id = {$registro2['id']}");
+									while($problema = mysql_fetch_array($find_problemas_ii)){			
+										echo "<span class='label label-important' title='{$problema['titulo']} - {$problema['conteudo']}'>* Problema</span>";
+									}								
+									?>
+								</div>
+							</div>
+						<?php } ?>
 
-					<?php $counter2++;}?>
+						<?php $counter2++;}?>
 
-						<div class='span6 prepost novademanda' id='3' ondrop='drop(event)' ondragover='allowDrop(event)'>Solte demandas aqui!</div>
-				</div>
-			</div><!-- /texthint -->
-
+					</div>
+				</div><!-- /texthint -->
+			</div>
 		</div>
 	</div>
 </div> <!-- /row -->

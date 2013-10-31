@@ -8,15 +8,16 @@ include('../config.php');
 
 mysql_query("UPDATE `promanager`.`demandas` SET `status`=$status WHERE `id`='$id';");
 
-echo "<div class='row-fluid'>";
+	echo "<div class='row-fluid'>";
+	echo "<div class='span6 prepost novademanda' id='2' ondrop='drop(event)' ondragover='allowDrop(event)'>Solte demandas aqui!</div>";
 
-$counter2=1;
-$demandas_status2 = mysql_query("SELECT * FROM `demandas` where projeto_id=$projeto_id and status=2") or trigger_error(mysql_error()); 
-while($registro2 = mysql_fetch_array($demandas_status2)){ 
-foreach($registro2 AS $key => $value) { $registro2[$key] = stripslashes($value); }  
-$resultado = $counter2%2; 
+	$counter2=1;
+	$demandas_status2 = mysql_query("SELECT * FROM `demandas` where projeto_id=$projeto_id and status=2") or trigger_error(mysql_error()); 
+	while($registro2 = mysql_fetch_array($demandas_status2)){ 
+	foreach($registro2 AS $key => $value) { $registro2[$key] = stripslashes($value); }  
+	$resultado = $counter2%2; 
 
- if($resultado == 0){ ?>
+ if(!$resultado == 0){ ?>
 	<div class="span6" ondrop="drop(event)" ondragover="allowDrop(event)">
 		<div class="post" id="<?php echo $registro2['id']; ?>" draggable="true" ondragstart="drag(event)">
 			<?php echo $registro2['titulo']; ?>
@@ -50,6 +51,6 @@ $resultado = $counter2%2;
 
 <?php $counter2++;} ?>
 
-	<div class='span6 prepost novademanda' id='2' ondrop='drop(event)' ondragover='allowDrop(event)'>Solte demandas aqui!</div>
+	
 
 
