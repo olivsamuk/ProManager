@@ -387,7 +387,7 @@ echo "<meta HTTP-EQUIV='refresh' CONTENT='1;URL=show.php?id=$id'>";
 				document.getElementById("status1").innerHTML=xmlhttp.responseText;
 				}
 			}
-		sleep(1000);
+		//sleep(1000);
 		xmlhttp.open("GET","ajax_status1.php?projeto_id=<?php echo $id; ?>",true);
 		xmlhttp.send();
 		}
@@ -410,7 +410,7 @@ echo "<meta HTTP-EQUIV='refresh' CONTENT='1;URL=show.php?id=$id'>";
 				document.getElementById("status3").innerHTML=xmlhttp.responseText;
 				}
 			}
-		sleep(1000);
+		//sleep(1000);
 		xmlhttp.open("GET","ajax_status3.php?projeto_id=<?php echo $id; ?>",true);
 		xmlhttp.send();
 		}
